@@ -8,10 +8,11 @@ import { PokeCard } from "@components/PokeCard";
 import { ResultsDTO } from "@models/ResultsDTO";
 
 import { Container } from "./styles";
+import { FlatList } from "react-native";
 
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);
-  const [pokemonPerPage, setPokemonPerPage] = useState(4);
+  const [pokemonPerPage, setPokemonPerPage] = useState(9);
   const [currentPage] = useState(0);
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();
@@ -33,10 +34,12 @@ export function Home() {
 
   return (
     <Container>
-      {pokemons &&
-        pokemons.map((pokemon) => (
-          <PokeCard url={pokemon.url} key={pokemon.url} />
-        ))}
+      <FlatList
+        data={pokemons}
+        keyExtractor={(item) => item.url}
+        renderItem={({ item }) => <PokeCard url={item.url} />}
+        showsVerticalScrollIndicator={false}
+      />
     </Container>
   );
 }

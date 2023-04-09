@@ -59,5 +59,5 @@ export function getIconType(type: string | undefined) {
     default:
       break;
   }
-  return icon ? `assets/poke-type-icons/${icon}-icon.svg` : undefined;
+  return icon ? `../assets/poke-type-icons/${icon}-icon.png` : undefined;
 }
