@@ -1,5 +1,7 @@
 export default {
   COLORS: {
+    WHITE: "#FFF",
+
     GREEN_700: "#00875F",
     GREEN_500: "#00B37E",
 
@@ -36,7 +38,7 @@ export default {
     YELLOW_SAND: "#ab9842",
     YELLOW_ROCK: "#a38c21",
     PINK_FAIRY: "#fdb9e9",
-    PINCK_PSYCHIC: "#f265b8",
+    PINK_PSYCHIC: "#f265b8",
     CORAL_DRAGON: "#f16e57",
   },
 
