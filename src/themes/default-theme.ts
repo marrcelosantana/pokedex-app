@@ -17,7 +17,7 @@ export default {
     TEXT: "#4d4d4d",
     TITLE: "#363f5f",
     TEXT_BODY: "#969cb3",
-    BACKGROUND: "#FFFFFF",
+    BACKGROUND: "#f8f8ff  ",
 
     //PokeTypes Colors:
     GREEN_GRASS: "#9bcc50",
