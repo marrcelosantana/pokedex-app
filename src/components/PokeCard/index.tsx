@@ -1,6 +1,7 @@
 import { Star } from "phosphor-react-native";
 import { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { PokemonDTO } from "@models/PokemonDTO";
 import { api } from "@services/api";
@@ -11,7 +12,6 @@ import { getTypeIcon } from "@utils/getTypeIcon";
 import {
   Avatar,
   AvatarContainer,
-  Container,
   Info,
   InfoContainer,
   Title,
@@ -42,9 +42,22 @@ export function PokeCard({ url }: Props) {
   );
 
   return (
-    <Container
+    <LinearGradient
+      start={{ x: 0, y: 1 }}
+      end={{ x: 1, y: 0 }}
+      colors={[
+        getBackgroundColor(pokemon?.types[0].type.name)[0],
+        getBackgroundColor(pokemon?.types[0].type.name)[1],
+      ]}
       style={{
-        backgroundColor: getBackgroundColor(pokemon?.types[0].type.name),
+        width: "100%",
+        height: 130,
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginTop: 15,
+        borderRadius: 10,
+        padding: 24,
+        flexDirection: "row",
       }}
     >
       <InfoContainer>
@@ -79,6 +92,6 @@ export function PokeCard({ url }: Props) {
           }}
         />
       </AvatarContainer>
-    </Container>
+    </LinearGradient>
   );
 }
