@@ -44,7 +44,9 @@ export const TypeName = styled.Text`
   font-size: 12px;
 `;
 
+export const AvatarContainer = styled.View``;
+
 export const Avatar = styled.Image`
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 `;

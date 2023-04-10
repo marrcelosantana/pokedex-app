@@ -1,3 +1,4 @@
+import { FlatList } from "react-native";
 import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
@@ -8,7 +9,6 @@ import { PokeCard } from "@components/PokeCard";
 import { ResultsDTO } from "@models/ResultsDTO";
 
 import { Container } from "./styles";
-import { FlatList } from "react-native";
 
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);

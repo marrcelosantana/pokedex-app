@@ -1,3 +1,4 @@
+import { Star } from "phosphor-react-native";
 import { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 
@@ -6,6 +7,7 @@ import { api } from "@services/api";
 
 import {
   Avatar,
+  AvatarContainer,
   Container,
   Info,
   InfoContainer,
@@ -55,11 +57,14 @@ export function PokeCard({ url }: Props) {
         </TypesContainer>
       </InfoContainer>
 
-      <Avatar
-        source={{
-          uri: pokemon?.sprites.other["official-artwork"].front_default,
-        }}
-      />
+      <AvatarContainer>
+        <Star size={18} style={{ marginLeft: 60, marginBottom: 5 }} />
+        <Avatar
+          source={{
+            uri: pokemon?.sprites.other["official-artwork"].front_default,
+          }}
+        />
+      </AvatarContainer>
     </Container>
   );
 }
