@@ -5,8 +5,7 @@ export const Container = styled.View`
   height: 130px;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
-  background-color: ${({ theme }) => theme.COLORS.GRAY_100};
+  margin-top: 15px;
   border-radius: 10px;
   padding: 24px;
   flex-direction: row;
