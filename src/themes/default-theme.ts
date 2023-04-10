@@ -23,7 +23,7 @@ export default {
 
     //PokeTypes Colors:
     GREEN_GRASS: "#9bcc50",
-    GREEN_BUG: "#729f3f",
+    GREEN_BUG: "#A8B820",
     PURPLE_POISON: "#b97fc9",
     PURPLE_GHOST: "#7b61a2",
     ORANGE_FIRE: "#fd7d24",
@@ -35,11 +35,11 @@ export default {
     GREY_STEEL: "#9eb7b8",
     GREY_DARK: "#707070",
     YELLOW_ELECTRIC: "#eed535",
-    YELLOW_SAND: "#ab9842",
+    YELLOW_GROUND: "#ab9842",
     YELLOW_ROCK: "#a38c21",
     PINK_FAIRY: "#fdb9e9",
-    PINK_PSYCHIC: "#f265b8",
-    CORAL_DRAGON: "#f16e57",
+    PINK_PSYCHIC: "#F85888",
+    PURPLE_DRAGON: "#7038F8",
   },
 
   FONT_FAMILY: {

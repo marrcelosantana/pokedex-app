@@ -5,16 +5,17 @@ import { useFocusEffect } from "@react-navigation/native";
 import { PokemonDTO } from "@models/PokemonDTO";
 import { api } from "@services/api";
 
+import { getBackgroundColor } from "@utils/getBackgroundColor";
+import { getTypeIcon } from "@utils/getTypeIcon";
+
 import {
   Avatar,
   AvatarContainer,
   Container,
   Info,
   InfoContainer,
-  PokeId,
-  PokeName,
-  Type,
-  TypeName,
+  Title,
+  TypeImage,
   TypesContainer,
 } from "./styles";
 
@@ -41,24 +42,37 @@ export function PokeCard({ url }: Props) {
   );
 
   return (
-    <Container>
+    <Container
+      style={{
+        backgroundColor: getBackgroundColor(pokemon?.types[0].type.name),
+      }}
+    >
       <InfoContainer>
         <Info>
-          <PokeId>#{pokemon?.id}</PokeId>
-          <PokeName>{pokemon?.name}</PokeName>
+          <Title>#{pokemon?.id}</Title>
+          <Title style={{ marginTop: 8 }}>{pokemon?.name}</Title>
         </Info>
 
         <TypesContainer>
-          {pokemon?.types.map((type) => (
-            <Type key={type.type.url}>
-              <TypeName>{type.type.name}</TypeName>
-            </Type>
-          ))}
+          {pokemon &&
+            pokemon?.types.map((type) => (
+              <TypeImage
+                source={{
+                  uri: getTypeIcon(type.type.name),
+                }}
+                key={type.type.name}
+              />
+            ))}
         </TypesContainer>
       </InfoContainer>
 
       <AvatarContainer>
-        <Star size={18} style={{ marginLeft: 60, marginBottom: 5 }} />
+        <Star
+          size={18}
+          color="white"
+          weight="bold"
+          style={{ marginLeft: 60, marginBottom: 5 }}
+        />
         <Avatar
           source={{
             uri: pokemon?.sprites.other["official-artwork"].front_default,

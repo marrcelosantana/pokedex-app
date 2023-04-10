@@ -12,7 +12,7 @@ import { Container } from "./styles";
 
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);
-  const [pokemonPerPage, setPokemonPerPage] = useState(9);
+  const [pokemonPerPage, setPokemonPerPage] = useState(150);
   const [currentPage] = useState(0);
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();

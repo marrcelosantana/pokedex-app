@@ -16,15 +16,11 @@ export const InfoContainer = styled.View``;
 
 export const Info = styled.View``;
 
-export const PokeId = styled.Text`
+export const Title = styled.Text`
   font-size: 18px;
   text-transform: capitalize;
-`;
-
-export const PokeName = styled.Text`
-  margin-top: 8px;
-  font-size: 18px;
-  text-transform: capitalize;
+  font-weight: bold;
+  color: white;
 `;
 
 export const TypesContainer = styled.View`
@@ -32,16 +28,12 @@ export const TypesContainer = styled.View`
   margin-top: 15px;
 `;
 
-export const Type = styled.View`
+export const TypeImage = styled.Image`
+  width: 28px;
+  height: 28px;
   margin-right: 10px;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
-  border-radius: 999px;
-  padding: 5px 10px;
-`;
-
-export const TypeName = styled.Text`
-  text-transform: capitalize;
-  font-size: 12px;
+  border: 1px solid white;
+  border-radius: 9999px;
 `;
 
 export const AvatarContainer = styled.View``;
