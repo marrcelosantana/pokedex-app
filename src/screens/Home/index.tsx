@@ -1,6 +1,7 @@
-import { FlatList } from "react-native";
 import { useEffect, useState } from "react";
+import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
 import { MagnifyingGlass } from "phosphor-react-native";
 
 import { api } from "@services/api";
@@ -42,6 +43,10 @@ export function Home() {
     }
   }
 
+  function handleOpenDetails(name: string) {
+    navigation.navigate("details", { name });
+  }
+
   useEffect(() => {
     loadPokemons();
   }, [pokemonPerPage]);
@@ -59,13 +64,18 @@ export function Home() {
 
       <Form>
         <Input placeholder="Search pokemon by name" />
-        <MagnifyingGlass style={{ marginLeft: -32 }} color="grey" />
+        <MagnifyingGlass style={{ marginLeft: -32 }} color="grey" size={20} />
       </Form>
 
       <FlatList
         data={pokemons}
         keyExtractor={(item) => item.url}
-        renderItem={({ item }) => <PokeCard url={item.url} />}
+        renderItem={({ item }) => (
+          <PokeCard
+            url={item.url}
+            onPress={() => handleOpenDetails(item.name)}
+          />
+        )}
         showsVerticalScrollIndicator={false}
         onEndReached={() => {
           setPokemonPerPage(pokemonPerPage + 12);

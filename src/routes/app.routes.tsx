@@ -8,7 +8,7 @@ import { Details } from "@screens/Details";
 
 type AppRoutes = {
   tabs: undefined;
-  details: undefined;
+  details: { name: string };
 };
 
 export type AppNavigatorRoutesProps = StackNavigationProp<AppRoutes>;
