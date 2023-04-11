@@ -10,6 +10,7 @@ import {
 } from "@react-navigation/native";
 
 import { PokemonDTO } from "@models/PokemonDTO";
+
 import { api } from "@services/api";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 
@@ -38,7 +39,6 @@ type RouteParams = {
 
 export function Details() {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
-  const [isLoading, setIsLoading] = useState(false);
 
   const tabs = ["About", "Stats", "Forms", "Location"];
   const [tabSelected, setTabSelected] = useState<String>("About");
@@ -49,13 +49,11 @@ export function Details() {
 
   async function loadPokemonData() {
     try {
-      setIsLoading(true);
       const response = await api.get(`/pokemon/${name}`);
       setPokemon(response.data);
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);
     }
   }
 
@@ -122,7 +120,7 @@ export function Details() {
               </Header>
 
               <Infos>
-                {tabSelected === "About" && <About />}
+                {tabSelected === "About" && <About species={pokemon.species} />}
                 {tabSelected === "Stats" && <Stats />}
                 {tabSelected === "Forms" && <Forms />}
                 {tabSelected === "Location" && <Location />}
