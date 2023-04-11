@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
+
 import { useNavigation } from "@react-navigation/native";
-
-import { MagnifyingGlass } from "phosphor-react-native";
-
 import { api } from "@services/api";
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
 
 import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
+import { Input } from "@components/Input";
+
 import { ResultsDTO } from "@models/ResultsDTO";
 
 import {
   Container,
-  Form,
-  Input,
   LoadingContainer,
   LogoContainer,
   LogoImg,
@@ -23,7 +21,7 @@ import {
 
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);
-  const [pokemonPerPage, setPokemonPerPage] = useState(9);
+  const [pokemonPerPage, setPokemonPerPage] = useState(4);
   const [currentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,14 +60,11 @@ export function Home() {
         <Title>PokéDex</Title>
       </LogoContainer>
 
-      <Form>
-        <Input placeholder="Search pokemon by name" />
-        <MagnifyingGlass style={{ marginLeft: -32 }} color="grey" size={20} />
-      </Form>
+      <Input placeholder="Search pokemon by name" />
 
       <FlatList
         data={pokemons}
-        keyExtractor={(item) => item.url}
+        keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
           <PokeCard
             url={item.url}
@@ -78,7 +73,7 @@ export function Home() {
         )}
         showsVerticalScrollIndicator={false}
         onEndReached={() => {
-          setPokemonPerPage(pokemonPerPage + 12);
+          setPokemonPerPage(pokemonPerPage + 4);
         }}
         onEndReachedThreshold={0.5}
       />

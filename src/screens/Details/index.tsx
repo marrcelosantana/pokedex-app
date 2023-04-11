@@ -11,9 +11,26 @@ import {
 
 import { PokemonDTO } from "@models/PokemonDTO";
 import { api } from "@services/api";
-
-import { Actions, Container, Name } from "./styles";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
+
+import { Loading } from "@components/Loading";
+import { About } from "@components/About";
+import { Stats } from "@components/Stats";
+import { Forms } from "@components/Forms";
+import { Location } from "@components/Location";
+
+import {
+  Actions,
+  Avatar,
+  AvatarContainer,
+  Container,
+  Content,
+  Header,
+  InfoContainer,
+  Infos,
+  Name,
+  TabTitle,
+} from "./styles";
 
 type RouteParams = {
   name: string;
@@ -22,6 +39,9 @@ type RouteParams = {
 export function Details() {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
   const [isLoading, setIsLoading] = useState(false);
+
+  const tabs = ["About", "Stats", "Forms", "Location"];
+  const [tabSelected, setTabSelected] = useState<String>("About");
 
   const route = useRoute();
   const { name } = route.params as RouteParams;
@@ -46,26 +66,73 @@ export function Details() {
   );
 
   return (
-    <Container
-      style={{
-        backgroundColor: getBackgroundColor(pokemon?.types[0].type.name)[0],
-      }}
-    >
-      <Actions>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack();
+    <>
+      {pokemon ? (
+        <Container
+          style={{
+            backgroundColor: getBackgroundColor(pokemon?.types[0].type.name)[0],
           }}
         >
-          <ArrowLeft color="white" weight="bold" size={24} />
-        </TouchableOpacity>
+          <Actions>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}
+            >
+              <ArrowLeft color="white" weight="bold" size={24} />
+            </TouchableOpacity>
 
-        <Name>{pokemon?.name}</Name>
+            <Name>{pokemon?.name}</Name>
 
-        <Pressable>
-          <Star size={24} color="white" weight="bold" />
-        </Pressable>
-      </Actions>
-    </Container>
+            <Pressable>
+              <Star size={24} color="white" weight="bold" />
+            </Pressable>
+          </Actions>
+
+          <Content>
+            <AvatarContainer>
+              <Avatar
+                source={{
+                  uri: pokemon?.sprites.other["official-artwork"].front_default,
+                }}
+              />
+            </AvatarContainer>
+
+            <InfoContainer>
+              <Header>
+                {tabs.map((tab) => (
+                  <TouchableOpacity
+                    key={tab}
+                    onPress={() => setTabSelected(tab)}
+                  >
+                    <TabTitle
+                      style={
+                        tab === tabSelected && {
+                          fontWeight: "bold",
+                          color: getBackgroundColor(
+                            pokemon.types[0].type.name
+                          )[0],
+                        }
+                      }
+                    >
+                      {tab}
+                    </TabTitle>
+                  </TouchableOpacity>
+                ))}
+              </Header>
+
+              <Infos>
+                {tabSelected === "About" && <About />}
+                {tabSelected === "Stats" && <Stats />}
+                {tabSelected === "Forms" && <Forms />}
+                {tabSelected === "Location" && <Location />}
+              </Infos>
+            </InfoContainer>
+          </Content>
+        </Container>
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 }

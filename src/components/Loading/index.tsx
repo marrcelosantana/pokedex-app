@@ -1,9 +1,10 @@
-import { Container, LoadingIndicator } from "./styles";
+import { Spinner } from "native-base";
+import { Container } from "./styles";
 
 export function Loading() {
   return (
     <Container>
-      <LoadingIndicator />
+      <Spinner color="blue.500" />
     </Container>
   );
 }
