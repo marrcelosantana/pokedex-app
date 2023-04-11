@@ -5,3 +5,38 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   padding: 80px 20px 0px 20px;
 `;
+
+export const LogoContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+`;
+
+export const LogoImg = styled.Image`
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+`;
+
+export const Title = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 12px;
+  color: ${({ theme }) => theme.COLORS.TEXT};
+`;
+
+export const Form = styled.View`
+  width: 100%;
+  margin-bottom: 10px;
+  align-items: center;
+`;
+
+export const Input = styled.TextInput`
+  width: 100%;
+  height: 48px;
+  background-color: #e1e1e6;
+  padding: 15px 10px;
+  border-radius: 8px;
+`;
