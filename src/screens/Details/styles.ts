@@ -61,5 +61,5 @@ export const TabTitle = styled.Text`
 
 export const Infos = styled.View`
   flex: 1;
-  margin-top: 40px;
+  margin-top: 30px;
 `;
