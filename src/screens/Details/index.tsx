@@ -77,13 +77,13 @@ export function Details() {
                 navigation.goBack();
               }}
             >
-              <ArrowLeft color="white" weight="bold" size={24} />
+              <ArrowLeft color="white" weight="bold" size={26} />
             </TouchableOpacity>
 
             <Name>{pokemon?.name}</Name>
 
             <Pressable>
-              <Star size={24} color="white" weight="bold" />
+              <Star size={26} color="white" weight="bold" />
             </Pressable>
           </Actions>
 
@@ -120,7 +120,7 @@ export function Details() {
               </Header>
 
               <Infos>
-                {tabSelected === "About" && <About species={pokemon.species} />}
+                {tabSelected === "About" && <About pokemon={pokemon} />}
                 {tabSelected === "Stats" && <Stats />}
                 {tabSelected === "Forms" && <Forms />}
                 {tabSelected === "Location" && <Location />}
