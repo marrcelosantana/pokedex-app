@@ -1,4 +1,5 @@
 import { AbilitiesDTO } from "./AbilitiesDTO";
+import { StatsDTO } from "./StatsDTO";
 import { TypesDTO } from "./TypesDTO";
 
 export type PokemonDTO = {
@@ -6,8 +7,10 @@ export type PokemonDTO = {
   name: string;
   weight: number;
   height: number;
+
   types: TypesDTO[];
   abilities: AbilitiesDTO[];
+  stats: StatsDTO[];
 
   species: {
     name: string;

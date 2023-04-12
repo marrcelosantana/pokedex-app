@@ -121,7 +121,7 @@ export function Details() {
 
               <Infos>
                 {tabSelected === "About" && <About pokemon={pokemon} />}
-                {tabSelected === "Stats" && <Stats />}
+                {tabSelected === "Stats" && <Stats pokemon={pokemon} />}
                 {tabSelected === "Forms" && <Forms />}
                 {tabSelected === "Location" && <Location />}
               </Infos>

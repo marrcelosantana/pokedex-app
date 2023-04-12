@@ -6,9 +6,9 @@ export const Container = styled.View`
 
 export const Title = styled.Text`
   font-size: 16px;
-  text-align: center;
   margin-bottom: 30px;
   color: ${({ theme }) => theme.COLORS.TEXT};
+  width: 100%;
 `;
 
 export const Infos = styled.Text`

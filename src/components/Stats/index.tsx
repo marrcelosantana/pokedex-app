@@ -1,9 +1,22 @@
-import { Container, Title } from "./styles";
+import { Progress } from "native-base";
 
-export function Stats() {
+import { PokemonDTO } from "@models/PokemonDTO";
+
+import { Container, ProgressContainer, Title } from "./styles";
+
+type Props = {
+  pokemon: PokemonDTO;
+};
+
+export function Stats({ pokemon }: Props) {
   return (
     <Container>
-      <Title>Stats</Title>
+      {pokemon.stats.map((item) => (
+        <ProgressContainer key={item.stat.name}>
+          <Title>{item.stat.name}</Title>
+          <Progress value={item.base_stat} w="64%" />
+        </ProgressContainer>
+      ))}
     </Container>
   );
 }
