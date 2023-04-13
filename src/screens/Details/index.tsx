@@ -10,7 +10,6 @@ import {
 } from "@react-navigation/native";
 
 import { PokemonDTO } from "@models/PokemonDTO";
-
 import { api } from "@services/api";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 
@@ -122,7 +121,7 @@ export function Details() {
               <Infos>
                 {tabSelected === "About" && <About pokemon={pokemon} />}
                 {tabSelected === "Stats" && <Stats pokemon={pokemon} />}
-                {tabSelected === "Forms" && <Forms />}
+                {tabSelected === "Forms" && <Forms pokemon={pokemon} />}
                 {tabSelected === "Location" && <Location />}
               </Infos>
             </InfoContainer>

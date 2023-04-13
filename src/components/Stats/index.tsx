@@ -1,18 +1,15 @@
 import { HStack, Progress } from "native-base";
 
 import { PokemonDTO } from "@models/PokemonDTO";
+import { getBackgroundColor } from "@utils/getBackgroundColor";
 
 import { Container, ProgressContainer, Title } from "./styles";
-import { useTheme } from "styled-components";
-import { getBackgroundColor } from "@utils/getBackgroundColor";
 
 type Props = {
   pokemon: PokemonDTO;
 };
 
 export function Stats({ pokemon }: Props) {
-  const theme = useTheme();
-
   return (
     <Container>
       {pokemon.stats.map((item) => (

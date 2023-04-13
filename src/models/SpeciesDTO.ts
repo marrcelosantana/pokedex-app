@@ -1,5 +1,3 @@
-import { PokemonDTO } from "./PokemonDTO";
-
 export type SpeciesDTO = {
   habitat: {
     name: string;
@@ -12,7 +10,10 @@ export type SpeciesDTO = {
 
   varieties: {
     is_default: boolean;
-    pokemon: PokemonDTO;
+    pokemon: {
+      name: string;
+      url: string;
+    };
   }[];
 
   flavor_text_entries: {
