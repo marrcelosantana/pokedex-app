@@ -6,7 +6,8 @@ import { PokemonDTO } from "@models/PokemonDTO";
 import { Loading } from "@components/Loading";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 
-import { Avatar, Container } from "./styles";
+import { Avatar, AvatarContainer, Container, Title } from "./styles";
+import { Text } from "react-native";
 
 type Props = {
   variety: {
@@ -36,16 +37,20 @@ export function PokeFormAvatar({ variety }: Props) {
   return (
     <>
       {data ? (
-        <Container
-          style={{
-            borderColor: getBackgroundColor(data.types[0].type.name)[0],
-          }}
-        >
-          <Avatar
-            source={{
-              uri: data?.sprites.other["official-artwork"].front_default,
+        <Container>
+          <AvatarContainer
+            style={{
+              borderColor: getBackgroundColor(data.types[0].type.name)[0],
             }}
-          />
+          >
+            <Avatar
+              source={{
+                uri: data?.sprites.other["official-artwork"].front_default,
+              }}
+            />
+          </AvatarContainer>
+          <Title>{data.name}</Title>
+          <Title>N˚{data.id}</Title>
         </Container>
       ) : (
         <Loading />

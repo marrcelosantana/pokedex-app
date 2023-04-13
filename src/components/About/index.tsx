@@ -34,7 +34,7 @@ export function About({ pokemon }: Props) {
 
   return (
     <Container showsVerticalScrollIndicator={false}>
-      <Title>{specieData?.flavor_text_entries[6].flavor_text}</Title>
+      <Title>{specieData?.flavor_text_entries[8].flavor_text}</Title>
 
       <Infos>
         <Label>Weight:</Label>

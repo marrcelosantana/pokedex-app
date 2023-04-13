@@ -17,7 +17,6 @@ import { Loading } from "@components/Loading";
 import { About } from "@components/About";
 import { Stats } from "@components/Stats";
 import { Forms } from "@components/Forms";
-import { Location } from "@components/Location";
 
 import {
   Actions,
@@ -31,6 +30,7 @@ import {
   Name,
   TabTitle,
 } from "./styles";
+import { Shiny } from "@components/Shiny";
 
 type RouteParams = {
   name: string;
@@ -39,7 +39,7 @@ type RouteParams = {
 export function Details() {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
 
-  const tabs = ["About", "Stats", "Forms", "Location"];
+  const tabs = ["About", "Stats", "Forms", "Shiny"];
   const [tabSelected, setTabSelected] = useState<String>("About");
 
   const route = useRoute();
@@ -122,7 +122,7 @@ export function Details() {
                 {tabSelected === "About" && <About pokemon={pokemon} />}
                 {tabSelected === "Stats" && <Stats pokemon={pokemon} />}
                 {tabSelected === "Forms" && <Forms pokemon={pokemon} />}
-                {tabSelected === "Location" && <Location />}
+                {tabSelected === "Shiny" && <Shiny pokemon={pokemon} />}
               </Infos>
             </InfoContainer>
           </Content>

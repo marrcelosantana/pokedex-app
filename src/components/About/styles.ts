@@ -7,7 +7,7 @@ export const Container = styled.ScrollView`
 
 export const Title = styled.Text`
   font-size: 18px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   color: ${({ theme }) => theme.COLORS.TEXT};
 `;
 

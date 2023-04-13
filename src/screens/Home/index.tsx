@@ -22,7 +22,7 @@ import {
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);
   const [pokemonPerPage, setPokemonPerPage] = useState(4);
-  const [currentPage] = useState(680);
+  const [currentPage] = useState(151);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();
