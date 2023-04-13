@@ -9,19 +9,16 @@ export function Input({ ...rest }: IInputProps) {
     <NativeBaseInput
       bg="gray.100"
       h="48px"
-      w="68%"
+      w="84%"
       mt="8px"
       borderWidth={1}
-      borderColor={theme.COLORS.GRAY_400}
+      borderColor={theme.COLORS.BLUE_WATER}
       mb={1}
       _focus={{
         bg: "gray.100",
         borderWidth: "1px",
-        borderColor: theme.COLORS.BLUE_WATER,
+        borderColor: "blue.700",
       }}
-      rightElement={
-        <MagnifyingGlass style={{ marginRight: 10 }} size={20} color="gray" />
-      }
       {...rest}
     />
   );

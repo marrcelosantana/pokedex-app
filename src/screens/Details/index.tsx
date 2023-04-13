@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { Pressable, TouchableOpacity } from "react-native";
+import { useToast } from "native-base";
 import { ArrowLeft, Star } from "phosphor-react-native";
 
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
@@ -17,6 +18,7 @@ import { Loading } from "@components/Loading";
 import { About } from "@components/About";
 import { Stats } from "@components/Stats";
 import { Forms } from "@components/Forms";
+import { Shiny } from "@components/Shiny";
 
 import {
   Actions,
@@ -30,7 +32,6 @@ import {
   Name,
   TabTitle,
 } from "./styles";
-import { Shiny } from "@components/Shiny";
 
 type RouteParams = {
   name: string;
@@ -46,13 +47,19 @@ export function Details() {
   const { name } = route.params as RouteParams;
   const navigation = useNavigation<AppNavigatorRoutesProps>();
 
+  const toast = useToast();
+
   async function loadPokemonData() {
     try {
       const response = await api.get(`/pokemon/${name}`);
       setPokemon(response.data);
     } catch (error) {
-      console.log(error);
-    } finally {
+      toast.show({
+        title: "Pokemon not found!",
+        bgColor: "red.400",
+        placement: "top",
+      });
+      navigation.goBack();
     }
   }
 

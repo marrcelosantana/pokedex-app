@@ -20,6 +20,22 @@ export const Input = styled.TextInput`
   border-radius: 8px;
 `;
 
+export const SearchBtn = styled.Pressable`
+  width: 52px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: row;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.COLORS.BLUE_WATER};
+`;
+
+export const ButtonText = styled.Text`
+  margin-right: 10px;
+  color: white;
+`;
+
 export const LoadingContainer = styled.View`
   margin-top: 20px;
   margin-bottom: 50px;
