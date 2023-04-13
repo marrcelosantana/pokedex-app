@@ -33,8 +33,8 @@ export function About({ pokemon }: Props) {
   );
 
   return (
-    <Container>
-      <Title>{specieData?.flavor_text_entries[8].flavor_text}</Title>
+    <Container showsVerticalScrollIndicator={false}>
+      <Title>{specieData?.flavor_text_entries[6].flavor_text}</Title>
 
       <Infos>
         <Label>Weight:</Label>
@@ -57,7 +57,11 @@ export function About({ pokemon }: Props) {
 
       <Infos>
         <Label>Habitat:</Label>
-        <Info> {specieData?.habitat.name}</Info>
+        {specieData?.habitat?.name ? (
+          <Info> {specieData?.habitat?.name}</Info>
+        ) : (
+          <Info> Unknow</Info>
+        )}
       </Infos>
 
       <View style={{ flexDirection: "row" }}>

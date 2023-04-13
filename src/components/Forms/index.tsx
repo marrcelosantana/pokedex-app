@@ -6,7 +6,6 @@ import { SpeciesDTO } from "@models/SpeciesDTO";
 
 import { api } from "@services/api";
 import { Loading } from "@components/Loading";
-import { getBackgroundColor } from "@utils/getBackgroundColor";
 
 import { Container } from "./styles";
 import { PokeFormAvatar } from "@components/PokeFormAvatar";
