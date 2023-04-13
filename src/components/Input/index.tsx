@@ -9,6 +9,8 @@ export function Input({ ...rest }: IInputProps) {
     <NativeBaseInput
       bg="gray.100"
       h="48px"
+      w="68%"
+      mt="8px"
       borderWidth={1}
       borderColor={theme.COLORS.GRAY_400}
       mb={1}

@@ -2,27 +2,23 @@ import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-import { api } from "@services/api";
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
+import { api } from "@services/api";
 
 import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
 import { Input } from "@components/Input";
+import { Menu } from "@components/Select";
+import { Header } from "@components/Header";
 
 import { ResultsDTO } from "@models/ResultsDTO";
 
-import {
-  Container,
-  LoadingContainer,
-  LogoContainer,
-  LogoImg,
-  Title,
-} from "./styles";
+import { Container, Form, LoadingContainer } from "./styles";
 
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);
   const [pokemonPerPage, setPokemonPerPage] = useState(4);
-  const [currentPage] = useState(151);
+  const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();
@@ -47,20 +43,16 @@ export function Home() {
 
   useEffect(() => {
     loadPokemons();
-  }, [pokemonPerPage]);
+  }, [pokemonPerPage, currentPage]);
 
   return (
     <Container>
-      <LogoContainer>
-        <LogoImg
-          source={{
-            uri: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
-          }}
-        />
-        <Title>PokéDex</Title>
-      </LogoContainer>
+      <Header />
 
-      <Input placeholder="Search pokemon by name" mb={2} />
+      <Form>
+        <Input placeholder="Search pokemon by name" mb={2} />
+        <Menu />
+      </Form>
 
       <FlatList
         data={pokemons}
