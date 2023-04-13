@@ -9,7 +9,8 @@ import { Loading } from "@components/Loading";
 
 import { Container } from "./styles";
 import { PokeFormAvatar } from "@components/PokeFormAvatar";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
+import { Center } from "native-base";
 
 type Props = {
   pokemon: PokemonDTO;
@@ -52,7 +53,9 @@ export function Forms({ pokemon }: Props) {
           />
         </Container>
       ) : (
-        <Loading />
+        <Center marginTop={32}>
+          <Loading />
+        </Center>
       )}
     </>
   );

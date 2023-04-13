@@ -1,6 +1,9 @@
+import { Center } from "native-base";
+
 import { PokemonDTO } from "@models/PokemonDTO";
+import { Loading } from "@components/Loading";
+
 import { Avatar, Container, Title } from "./styles";
-import { getBackgroundColor } from "@utils/getBackgroundColor";
 
 type Props = {
   pokemon: PokemonDTO;
@@ -8,11 +11,21 @@ type Props = {
 
 export function Shiny({ pokemon }: Props) {
   return (
-    <Container>
-      <Avatar
-        source={{ uri: pokemon.sprites.other["official-artwork"].front_shiny }}
-      />
-      <Title>Shiny {pokemon.name}</Title>
-    </Container>
+    <>
+      {pokemon ? (
+        <Container>
+          <Avatar
+            source={{
+              uri: pokemon.sprites.other["official-artwork"].front_shiny,
+            }}
+          />
+          <Title>Shiny {pokemon.name}</Title>
+        </Container>
+      ) : (
+        <Center marginTop={32}>
+          <Loading />
+        </Center>
+      )}
+    </>
   );
 }

@@ -60,7 +60,7 @@ export function Home() {
         <Title>PokéDex</Title>
       </LogoContainer>
 
-      <Input placeholder="Search pokemon by name" />
+      <Input placeholder="Search pokemon by name" mb={2} />
 
       <FlatList
         data={pokemons}
