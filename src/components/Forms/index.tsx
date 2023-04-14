@@ -1,4 +1,6 @@
 import { useCallback, useState } from "react";
+import { FlatList } from "react-native";
+import { Center } from "native-base";
 import { useFocusEffect } from "@react-navigation/native";
 
 import { PokemonDTO } from "@models/PokemonDTO";
@@ -6,11 +8,9 @@ import { SpeciesDTO } from "@models/SpeciesDTO";
 
 import { api } from "@services/api";
 import { Loading } from "@components/Loading";
+import { PokeFormAvatar } from "@components/PokeFormAvatar";
 
 import { Container } from "./styles";
-import { PokeFormAvatar } from "@components/PokeFormAvatar";
-import { FlatList, View } from "react-native";
-import { Center } from "native-base";
 
 type Props = {
   pokemon: PokemonDTO;

@@ -1,6 +1,13 @@
-import { useCallback, useState } from "react";
-import { TouchableOpacity, View, TouchableOpacityProps } from "react-native";
+import { useCallback, useContext, useState } from "react";
+import {
+  TouchableOpacity,
+  View,
+  TouchableOpacityProps,
+  Pressable,
+} from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
+
+import { PokeContext } from "@contexts/PokeContext";
 
 import { Star } from "phosphor-react-native";
 
@@ -18,6 +25,8 @@ type Props = TouchableOpacityProps & {
 
 export function PokeCard({ url, ...rest }: Props) {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
+
+  const { addToFavorites } = useContext(PokeContext);
 
   async function loadPokemonData() {
     try {
@@ -64,12 +73,21 @@ export function PokeCard({ url, ...rest }: Props) {
         </View>
 
         <View>
-          <Star
-            size={20}
-            color="white"
-            weight="bold"
-            style={{ marginLeft: 100, position: "absolute" }}
-          />
+          {pokemon && (
+            <Pressable
+              onPress={() => {
+                addToFavorites(url);
+              }}
+            >
+              <Star
+                size={20}
+                color="white"
+                weight="bold"
+                style={{ marginLeft: 100, position: "absolute" }}
+              />
+            </Pressable>
+          )}
+
           <Avatar
             source={{
               uri: pokemon?.sprites.other["official-artwork"].front_default,

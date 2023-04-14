@@ -1,5 +1,4 @@
 import { Input as NativeBaseInput, IInputProps } from "native-base";
-import { MagnifyingGlass } from "phosphor-react-native";
 import { useTheme } from "styled-components";
 
 export function Input({ ...rest }: IInputProps) {
