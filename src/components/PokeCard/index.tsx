@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import {
   TouchableOpacity,
   View,
@@ -25,8 +25,6 @@ type Props = TouchableOpacityProps & {
 
 export function PokeCard({ url, ...rest }: Props) {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
-
-  const { addToFavorites } = useContext(PokeContext);
 
   async function loadPokemonData() {
     try {
@@ -74,11 +72,7 @@ export function PokeCard({ url, ...rest }: Props) {
 
         <View>
           {pokemon && (
-            <Pressable
-              onPress={() => {
-                addToFavorites(url);
-              }}
-            >
+            <Pressable onPress={() => {}}>
               <Star
                 size={20}
                 color="white"
