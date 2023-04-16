@@ -9,12 +9,35 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
+  font-size: 32px;
   font-weight: bold;
   color: ${({ theme }) => theme.COLORS.TEXT};
+`;
+
+export const Header = styled.View`
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-direction: row;
+`;
+
+export const Text = styled.Text`
+  color: ${({ theme }) => theme.COLORS.TEXT};
+  font-weight: bold;
+  font-size: 18px;
 `;
 
 export const CardsContainer = styled.View`
   width: 100%;
   margin-top: 20px;
+`;
+
+export const RemoveBtn = styled.Pressable`
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  padding: 6px;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.COLORS.RED};
 `;
