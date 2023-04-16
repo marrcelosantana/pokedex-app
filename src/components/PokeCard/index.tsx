@@ -26,13 +26,23 @@ type Props = TouchableOpacityProps & {
 
 export function PokeCard({ url, ...rest }: Props) {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
+  const [isFavorite, setIsFavorite] = useState<boolean>();
 
-  const { handleFavorite } = useContext(PokeContext);
+  const { addToFavorites } = useContext(PokeContext);
 
   async function loadPokemonData() {
     try {
       const response = await api.get(url);
       setPokemon(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleFavorite(url: string) {
+    try {
+      await addToFavorites(url);
+      setIsFavorite(!isFavorite);
     } catch (error) {
       console.log(error);
     }
@@ -82,8 +92,8 @@ export function PokeCard({ url, ...rest }: Props) {
             >
               <Star
                 size={20}
-                color="white"
-                weight="bold"
+                color={isFavorite ? "yellow" : "white"}
+                weight={isFavorite ? "fill" : "bold"}
                 style={{ marginLeft: 100, position: "absolute" }}
               />
             </Pressable>

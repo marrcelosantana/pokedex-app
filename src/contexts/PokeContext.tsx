@@ -6,8 +6,9 @@ import {
 
 interface PokeContextType {
   favorites: string[];
+  isFavorite: boolean;
   loadFavorites: () => void;
-  handleFavorite: (url: string) => void;
+  addToFavorites: (url: string) => void;
 }
 
 interface PokeProviderProps {
@@ -18,6 +19,7 @@ export const PokeContext = createContext({} as PokeContextType);
 
 export function PokeProvider({ children }: PokeProviderProps) {
   const [favorites, setFavorites] = useState<string[]>([]);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   async function loadFavorites() {
     try {
@@ -28,16 +30,20 @@ export function PokeProvider({ children }: PokeProviderProps) {
     }
   }
 
-  async function handleFavorite(url: string) {
+  async function addToFavorites(url: string) {
     try {
       await storageFavoritesCreate(url);
+      loadFavorites();
+      setIsFavorite(!isFavorite);
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <PokeContext.Provider value={{ favorites, loadFavorites, handleFavorite }}>
+    <PokeContext.Provider
+      value={{ favorites, isFavorite, loadFavorites, addToFavorites }}
+    >
       {children}
     </PokeContext.Provider>
   );

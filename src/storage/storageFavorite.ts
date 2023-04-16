@@ -1,6 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FAVORITE_STORAGE } from "./storageConfig";
-import { AppError } from "@utils/AppError";
 
 export async function storageFavoritesGetAll() {
   try {
@@ -21,7 +20,7 @@ export async function storageFavoritesCreate(url: string) {
     const urlAlreadyExists = storageFavorites.includes(url);
 
     if (urlAlreadyExists) {
-      throw new AppError("Pokemon is already favorited.");
+      storageFavoritesRemove(url);
     }
 
     const storage = JSON.stringify([...storageFavorites, url]);
