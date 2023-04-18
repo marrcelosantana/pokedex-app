@@ -89,7 +89,7 @@ export function Details() {
             <Name>{pokemon?.name}</Name>
 
             <Pressable>
-              <Star size={26} color="white" weight="bold" />
+              {/* <Star size={26} color="white" weight="bold" /> */}
             </Pressable>
           </Actions>
 

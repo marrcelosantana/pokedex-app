@@ -26,9 +26,8 @@ type Props = TouchableOpacityProps & {
 
 export function PokeCard({ url, ...rest }: Props) {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
-  const [isFavorite, setIsFavorite] = useState<boolean>();
 
-  const { addToFavorites } = useContext(PokeContext);
+  const { favorites, addToFavorites } = useContext(PokeContext);
 
   async function loadPokemonData() {
     try {
@@ -42,10 +41,20 @@ export function PokeCard({ url, ...rest }: Props) {
   function handleFavorite(url: string) {
     try {
       addToFavorites(url);
-      setIsFavorite(!isFavorite);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function checkIsFavorite(url: string) {
+    let isFavorite = false;
+    favorites.map((item) => {
+      if (item === url) {
+        isFavorite = true;
+      }
+    });
+
+    return isFavorite;
   }
 
   useFocusEffect(
@@ -92,8 +101,8 @@ export function PokeCard({ url, ...rest }: Props) {
             >
               <Star
                 size={20}
-                color={isFavorite ? "yellow" : "white"}
-                weight={isFavorite ? "fill" : "bold"}
+                color={checkIsFavorite(url) ? "yellow" : "white"}
+                weight={checkIsFavorite(url) ? "fill" : "bold"}
                 style={{ marginLeft: 100, position: "absolute" }}
               />
             </Pressable>
