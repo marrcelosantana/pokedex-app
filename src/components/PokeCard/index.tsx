@@ -39,9 +39,9 @@ export function PokeCard({ url, ...rest }: Props) {
     }
   }
 
-  async function handleFavorite(url: string) {
+  function handleFavorite(url: string) {
     try {
-      await addToFavorites(url);
+      addToFavorites(url);
       setIsFavorite(!isFavorite);
     } catch (error) {
       console.log(error);
