@@ -59,7 +59,7 @@ export function Home() {
   function handleSearch({ query }: FormDataProps) {
     try {
       const pokemonName = query.toLowerCase();
-      handleOpenDetails(pokemonName);
+      handleOpenDetails(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       reset();
     } catch (error) {
       toast.show({
@@ -69,8 +69,8 @@ export function Home() {
     }
   }
 
-  function handleOpenDetails(name: string) {
-    navigation.navigate("details", { name });
+  function handleOpenDetails(url: string) {
+    navigation.navigate("details", { url });
   }
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export function Home() {
         renderItem={({ item }) => (
           <PokeCard
             url={item.url}
-            onPress={() => handleOpenDetails(item.name)}
+            onPress={() => handleOpenDetails(item.url)}
           />
         )}
         showsVerticalScrollIndicator={false}

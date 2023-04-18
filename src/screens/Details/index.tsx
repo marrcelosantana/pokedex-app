@@ -34,7 +34,7 @@ import {
 } from "./styles";
 
 type RouteParams = {
-  name: string;
+  url: string;
 };
 
 export function Details() {
@@ -44,14 +44,14 @@ export function Details() {
   const [tabSelected, setTabSelected] = useState<String>("About");
 
   const route = useRoute();
-  const { name } = route.params as RouteParams;
+  const { url } = route.params as RouteParams;
   const navigation = useNavigation<AppNavigatorRoutesProps>();
 
   const toast = useToast();
 
   async function loadPokemonData() {
     try {
-      const response = await api.get(`/pokemon/${name}`);
+      const response = await api.get(`${url}`);
       setPokemon(response.data);
     } catch (error) {
       toast.show({

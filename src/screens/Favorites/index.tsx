@@ -2,7 +2,7 @@ import { useCallback, useContext } from "react";
 import { FlatList } from "react-native";
 import { Center } from "native-base";
 
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { Trash } from "phosphor-react-native";
 
 import { PokeContext } from "@contexts/PokeContext";
@@ -19,9 +19,16 @@ import {
   Text,
   Title,
 } from "./styles";
+import { AppNavigatorRoutesProps } from "@routes/app.routes";
 
 export function Favorites() {
   const { favorites, loadFavorites } = useContext(PokeContext);
+
+  const navigation = useNavigation<AppNavigatorRoutesProps>();
+
+  function handleOpenDetails(url: string) {
+    navigation.navigate("details", { url });
+  }
 
   async function handleClear() {
     try {
@@ -53,7 +60,14 @@ export function Favorites() {
             <FlatList
               data={favorites}
               keyExtractor={(item) => item}
-              renderItem={({ item }) => <PokeCard url={item} />}
+              renderItem={({ item }) => (
+                <PokeCard
+                  url={item}
+                  onPress={() => {
+                    handleOpenDetails(item);
+                  }}
+                />
+              )}
               showsVerticalScrollIndicator={false}
             />
           </CardsContainer>
