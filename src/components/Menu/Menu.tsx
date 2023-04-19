@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CheckIcon, Select } from "native-base";
+import { useTheme } from "styled-components";
 
 type Props = {
   setPage(page: number): void;
@@ -7,6 +8,8 @@ type Props = {
 
 export function Menu({ setPage }: Props) {
   const [region, setRegion] = useState("");
+
+  const theme = useTheme();
 
   if (region === "kanto") {
     setPage(0);
@@ -25,7 +28,7 @@ export function Menu({ setPage }: Props) {
   }
 
   if (region === "unova") {
-    setPage(493);
+    setPage(494);
   }
 
   if (region === "kalos") {
@@ -48,37 +51,13 @@ export function Menu({ setPage }: Props) {
     setPage(905);
   }
 
-  // switch (region) {
-  //   case "kanto":
-  //     setPage(0);
-  //   case "johto":
-  //     setPage(151);
-  //   case "hoenn":
-  //     setPage(251);
-  //   case "sinnoh":
-  //     setPage(386);
-  //   case "unova":
-  //     setPage(493);
-  //   case "kalos":
-  //     setPage(649);
-  //   case "alola":
-  //     setPage(721);
-  //   case "galar":
-  //     setPage(809);
-  //   case "hisui":
-  //     setPage(898);
-  //   case "paldea":
-  //     setPage(905);
-
-  //   default:
-  //     "kanto";
-  // }
-
   return (
     <Select
       selectedValue={region}
       width="100%"
       h="48px"
+      borderWidth={1}
+      borderColor={theme.COLORS.BLUE_WATER}
       accessibilityLabel="Choose Region"
       placeholder="Region"
       _selectedItem={{

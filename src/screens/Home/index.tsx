@@ -14,7 +14,7 @@ import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
 import { Input } from "@components/Input";
 import { Header } from "@components/Header";
-import { Menu } from "@components/Select/Menu";
+import { Menu } from "@components/Menu/Menu";
 
 import { ResultsDTO } from "@models/ResultsDTO";
 import { MagnifyingGlass } from "phosphor-react-native";
@@ -107,9 +107,9 @@ export function Home() {
         </SearchBtn>
       </Form>
 
-      {/* <MenuContainer>
+      <MenuContainer>
         <Menu setPage={setCurrentPage} />
-      </MenuContainer> */}
+      </MenuContainer>
 
       <FlatList
         data={pokemons}

@@ -50,12 +50,14 @@ export function Favorites() {
       {favorites ? (
         <Container>
           <Title>Favorites</Title>
+
           <Header>
             <Text>Favorites: {favorites.length}</Text>
             <RemoveBtn onPress={handleClear}>
               <Trash size={20} color="white" weight="bold" />
             </RemoveBtn>
           </Header>
+
           <CardsContainer>
             <FlatList
               data={favorites}
