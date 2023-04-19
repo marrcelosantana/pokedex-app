@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Pressable, TouchableOpacity } from "react-native";
 import { useToast } from "native-base";
 import { ArrowLeft, Star } from "phosphor-react-native";
@@ -13,6 +13,7 @@ import {
 import { PokemonDTO } from "@models/PokemonDTO";
 import { api } from "@services/api";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
+import { PokeContext } from "@contexts/PokeContext";
 
 import { Loading } from "@components/Loading";
 import { About } from "@components/About";
@@ -40,6 +41,8 @@ type RouteParams = {
 export function Details() {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
 
+  const { favorites, addToFavorites } = useContext(PokeContext);
+
   const tabs = ["About", "Stats", "Forms", "Shiny"];
   const [tabSelected, setTabSelected] = useState<String>("About");
 
@@ -61,6 +64,25 @@ export function Details() {
       });
       navigation.goBack();
     }
+  }
+
+  function handleFavorite(url: string) {
+    try {
+      addToFavorites(url);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function checkIsFavorite(url: string) {
+    let isFavorite = false;
+    favorites.map((item) => {
+      if (item === url) {
+        isFavorite = true;
+      }
+    });
+
+    return isFavorite;
   }
 
   useFocusEffect(
@@ -88,8 +110,16 @@ export function Details() {
 
             <Name>{pokemon?.name}</Name>
 
-            <Pressable>
-              {/* <Star size={26} color="white" weight="bold" /> */}
+            <Pressable
+              onPress={() => {
+                handleFavorite(url);
+              }}
+            >
+              <Star
+                size={26}
+                color={checkIsFavorite(url) ? "yellow" : "white"}
+                weight={checkIsFavorite(url) ? "fill" : "bold"}
+              />
             </Pressable>
           </Actions>
 

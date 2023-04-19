@@ -14,11 +14,18 @@ import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
 import { Input } from "@components/Input";
 import { Header } from "@components/Header";
+import { Menu } from "@components/Select/Menu";
 
 import { ResultsDTO } from "@models/ResultsDTO";
 import { MagnifyingGlass } from "phosphor-react-native";
 
-import { Container, Form, LoadingContainer, SearchBtn } from "./styles";
+import {
+  Container,
+  Form,
+  LoadingContainer,
+  MenuContainer,
+  SearchBtn,
+} from "./styles";
 
 type FormDataProps = {
   query: string;
@@ -99,6 +106,10 @@ export function Home() {
           <MagnifyingGlass size={20} color="white" weight="bold" />
         </SearchBtn>
       </Form>
+
+      {/* <MenuContainer>
+        <Menu setPage={setCurrentPage} />
+      </MenuContainer> */}
 
       <FlatList
         data={pokemons}

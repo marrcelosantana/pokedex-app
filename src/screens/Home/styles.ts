@@ -43,3 +43,9 @@ export const LoadingContainer = styled.View`
   justify-content: center;
   width: 100%;
 `;
+
+export const MenuContainer = styled.View`
+  width: 100%;
+  align-items: flex-end;
+  margin-bottom: 10px;
+`;
