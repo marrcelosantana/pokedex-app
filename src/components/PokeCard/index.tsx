@@ -57,6 +57,8 @@ export function PokeCard({ url, ...rest }: Props) {
     return isFavorite;
   }
 
+  const isFavorite = checkIsFavorite(url);
+
   useFocusEffect(
     useCallback(() => {
       loadPokemonData();
@@ -105,8 +107,8 @@ export function PokeCard({ url, ...rest }: Props) {
             >
               <Star
                 size={20}
-                color={checkIsFavorite(url) ? "yellow" : "white"}
-                weight={checkIsFavorite(url) ? "fill" : "bold"}
+                color={isFavorite ? "yellow" : "white"}
+                weight={isFavorite ? "fill" : "bold"}
                 style={{ marginLeft: 100, position: "absolute" }}
               />
             </Pressable>

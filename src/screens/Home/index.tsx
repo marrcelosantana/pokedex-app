@@ -37,7 +37,7 @@ const formSchema = yup.object({
 
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);
-  const [pokemonPerPage, setPokemonPerPage] = useState(4);
+  const [pokemonPerPage, setPokemonPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
