@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FlatList } from "react-native";
 import { useToast } from "native-base";
 
@@ -122,7 +122,7 @@ export function Home() {
         )}
         showsVerticalScrollIndicator={false}
         onEndReached={() => {
-          setPokemonPerPage(pokemonPerPage + 4);
+          setPokemonPerPage(pokemonPerPage + 12);
         }}
         onEndReachedThreshold={0.5}
       />

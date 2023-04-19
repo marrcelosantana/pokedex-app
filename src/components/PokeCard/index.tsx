@@ -75,7 +75,11 @@ export function PokeCard({ url, ...rest }: Props) {
       >
         <View>
           <View>
-            <Title>#{pokemon?.id}</Title>
+            {pokemon?.id && pokemon?.id < 10 && <Title>#00{pokemon?.id}</Title>}
+            {pokemon?.id && pokemon?.id >= 10 && pokemon.id < 100 && (
+              <Title>#0{pokemon?.id}</Title>
+            )}
+            {pokemon?.id && pokemon?.id >= 100 && <Title>#{pokemon?.id}</Title>}
             <Title style={{ marginTop: 8 }}>{pokemon?.name}</Title>
           </View>
 

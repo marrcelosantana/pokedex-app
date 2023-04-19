@@ -38,10 +38,10 @@ export function About({ pokemon }: Props) {
     <>
       {specieData ? (
         <Container showsVerticalScrollIndicator={false}>
-          {specieData.flavor_text_entries ? (
-            <Title>{specieData?.flavor_text_entries[8].flavor_text}</Title>
+          {specieData?.flavor_text_entries[8]?.flavor_text ? (
+            <Title>{specieData?.flavor_text_entries[8]?.flavor_text}</Title>
           ) : (
-            <Title>No information.</Title>
+            <Title>Not information yet.</Title>
           )}
 
           <Infos>
