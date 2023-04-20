@@ -15,7 +15,7 @@ import { Container, LoadingContainer } from "./styles";
 
 export function Items() {
   const [items, setItems] = useState<ResultsDTO[]>([]);
-  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const [itemsPerPage, setItemsPerPage] = useState(24);
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -53,9 +53,9 @@ export function Items() {
             keyExtractor={(item) => item.url}
             renderItem={({ item }) => <ItemCard url={item.url} />}
             showsVerticalScrollIndicator={false}
-            numColumns={2}
+            numColumns={3}
             onEndReached={() => {
-              setItemsPerPage(itemsPerPage + 8);
+              setItemsPerPage(itemsPerPage + 21);
             }}
             onEndReachedThreshold={0.5}
           />
