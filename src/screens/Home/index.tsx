@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
-import { useToast } from "native-base";
+import { Center, useToast } from "native-base";
 
 import { useNavigation } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
@@ -85,53 +85,64 @@ export function Home() {
   }, [pokemonPerPage, currentPage]);
 
   return (
-    <Container>
-      <Header />
-
-      <Form>
-        <Controller
-          control={control}
-          name="query"
-          render={({ field: { value, onChange } }) => (
-            <Input
-              placeholder="Search pokemon by name"
-              mb={2}
-              value={value}
-              onChangeText={onChange}
-            />
-          )}
-        />
-
-        <SearchBtn onPress={handleSubmit(handleSearch)}>
-          <MagnifyingGlass size={20} color="white" weight="bold" />
-        </SearchBtn>
-      </Form>
-
-      <MenuContainer>
-        <Menu setPage={setCurrentPage} />
-      </MenuContainer>
-
-      <FlatList
-        data={pokemons}
-        keyExtractor={(item) => item.name}
-        renderItem={({ item }) => (
-          <PokeCard
-            url={item.url}
-            onPress={() => handleOpenDetails(item.url)}
+    <>
+      {pokemons ? (
+        <Container>
+          <Header
+            title="PokéDex"
+            url="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif"
           />
-        )}
-        showsVerticalScrollIndicator={false}
-        onEndReached={() => {
-          setPokemonPerPage(pokemonPerPage + 12);
-        }}
-        onEndReachedThreshold={0.5}
-      />
 
-      {isLoading && (
-        <LoadingContainer>
+          <Form>
+            <Controller
+              control={control}
+              name="query"
+              render={({ field: { value, onChange } }) => (
+                <Input
+                  placeholder="Search pokemon by name"
+                  mb={2}
+                  value={value}
+                  onChangeText={onChange}
+                />
+              )}
+            />
+
+            <SearchBtn onPress={handleSubmit(handleSearch)}>
+              <MagnifyingGlass size={20} color="white" weight="bold" />
+            </SearchBtn>
+          </Form>
+
+          <MenuContainer>
+            <Menu setPage={setCurrentPage} />
+          </MenuContainer>
+
+          <FlatList
+            data={pokemons}
+            keyExtractor={(item) => item.name}
+            renderItem={({ item }) => (
+              <PokeCard
+                url={item.url}
+                onPress={() => handleOpenDetails(item.url)}
+              />
+            )}
+            showsVerticalScrollIndicator={false}
+            onEndReached={() => {
+              setPokemonPerPage(pokemonPerPage + 12);
+            }}
+            onEndReachedThreshold={0.5}
+          />
+
+          {isLoading && (
+            <LoadingContainer>
+              <Loading />
+            </LoadingContainer>
+          )}
+        </Container>
+      ) : (
+        <Center flex={1}>
           <Loading />
-        </LoadingContainer>
+        </Center>
       )}
-    </Container>
+    </>
   );
 }

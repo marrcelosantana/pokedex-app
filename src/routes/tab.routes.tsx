@@ -1,4 +1,5 @@
 import { Platform } from "react-native";
+import { useTheme } from "styled-components/native";
 
 import {
   createBottomTabNavigator,
@@ -7,15 +8,14 @@ import {
 
 import { Home } from "@screens/Home";
 import { Favorites } from "@screens/Favorites";
-import { Regions } from "@screens/Regions";
+import { Items } from "@screens/Items";
 
-import { House, MapPin, Star } from "phosphor-react-native";
-import { useTheme } from "styled-components/native";
+import { Backpack, House, Star } from "phosphor-react-native";
 
 type TabRoutes = {
   home: undefined;
   favorites: undefined;
-  regions: undefined;
+  items: undefined;
 };
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -69,11 +69,11 @@ export function TabRoutes() {
       />
 
       <Screen
-        name="regions"
-        component={Regions}
+        name="items"
+        component={Items}
         options={{
           tabBarIcon: ({ color }) => (
-            <MapPin size={24} color={color} weight="bold" />
+            <Backpack size={24} color={color} weight="bold" />
           ),
         }}
       />

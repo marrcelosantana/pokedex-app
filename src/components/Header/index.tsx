@@ -1,18 +1,19 @@
-import { Pressable } from "react-native";
-import { clearStorage } from "@storage/storageFavorite";
 import { Container, LogoImg, Title } from "./styles";
 
-export function Header() {
+type Props = {
+  title: string;
+  url: string;
+};
+
+export function Header({ title, url }: Props) {
   return (
-    <Pressable onPress={clearStorage}>
-      <Container>
-        <LogoImg
-          source={{
-            uri: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
-          }}
-        />
-        <Title>PokéDex</Title>
-      </Container>
-    </Pressable>
+    <Container>
+      <LogoImg
+        source={{
+          uri: url,
+        }}
+      />
+      <Title>{title}</Title>
+    </Container>
   );
 }
