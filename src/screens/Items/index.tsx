@@ -44,7 +44,7 @@ export function Items() {
       {items ? (
         <Container>
           <Header
-            title="Pokémon Items"
+            title="Items"
             url="https://img.pokemondb.net/sprites/black-white/anim/normal/pichu.gif"
           />
 

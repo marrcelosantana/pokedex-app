@@ -9,12 +9,14 @@ import {
 import { Home } from "@screens/Home";
 import { Favorites } from "@screens/Favorites";
 import { Items } from "@screens/Items";
+import { Regions } from "@screens/Regions";
 
-import { Backpack, House, Star } from "phosphor-react-native";
+import { Backpack, House, MapPin, Star } from "phosphor-react-native";
 
 type TabRoutes = {
   home: undefined;
   favorites: undefined;
+  regions: undefined;
   items: undefined;
 };
 
@@ -64,6 +66,16 @@ export function TabRoutes() {
         options={{
           tabBarIcon: ({ color }) => (
             <Star size={24} color={color} weight="bold" />
+          ),
+        }}
+      />
+
+      <Screen
+        name="regions"
+        component={Regions}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MapPin size={24} color={color} weight="bold" />
           ),
         }}
       />

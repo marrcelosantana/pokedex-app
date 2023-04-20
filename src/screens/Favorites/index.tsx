@@ -3,6 +3,7 @@ import { FlatList } from "react-native";
 import { Center } from "native-base";
 
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "@routes/app.routes";
 import { Trash } from "phosphor-react-native";
 
 import { PokeContext } from "@contexts/PokeContext";
@@ -10,16 +11,15 @@ import { clearStorage } from "@storage/storageFavorite";
 
 import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
+import { Header } from "@components/Header";
 
 import {
   CardsContainer,
   Container,
-  Header,
+  Highlight,
   RemoveBtn,
   Text,
-  Title,
 } from "./styles";
-import { AppNavigatorRoutesProps } from "@routes/app.routes";
 
 export function Favorites() {
   const { favorites, loadFavorites } = useContext(PokeContext);
@@ -49,14 +49,17 @@ export function Favorites() {
     <>
       {favorites ? (
         <Container>
-          <Title>Favorites</Title>
+          <Header
+            title="Favorites"
+            url="https://img.pokemondb.net/sprites/black-white/anim/normal/togepi.gif"
+          />
 
-          <Header>
+          <Highlight>
             <Text>Favorites: {favorites.length}</Text>
             <RemoveBtn onPress={handleClear}>
               <Trash size={20} color="white" weight="bold" />
             </RemoveBtn>
-          </Header>
+          </Highlight>
 
           <CardsContainer>
             <FlatList

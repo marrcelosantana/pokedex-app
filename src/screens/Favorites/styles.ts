@@ -4,17 +4,10 @@ export const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   padding: 80px 20px 0 20px;
 `;
 
-export const Title = styled.Text`
-  font-size: 32px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.COLORS.TEXT};
-`;
-
-export const Header = styled.View`
+export const Highlight = styled.View`
   width: 100%;
   align-items: center;
   justify-content: space-between;
