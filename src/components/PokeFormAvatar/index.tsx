@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
+import { useToast } from "native-base";
 
 import { api } from "@services/api";
 import { PokemonDTO } from "@models/PokemonDTO";
@@ -7,7 +8,6 @@ import { Loading } from "@components/Loading";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 
 import { Avatar, AvatarContainer, Container, Title } from "./styles";
-import { Text } from "react-native";
 
 type Props = {
   variety: {
@@ -18,13 +18,19 @@ type Props = {
 
 export function PokeFormAvatar({ variety }: Props) {
   const [data, setData] = useState<PokemonDTO>();
+  const toast = useToast();
 
   async function loadData() {
     try {
       const response = await api.get(`${variety.url}`);
       setData(response.data);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error loading data!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     }
   }
 

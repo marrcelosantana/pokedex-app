@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { FlatList } from "react-native";
-import { Center } from "native-base";
+import { Center, useToast } from "native-base";
 
 import { useFocusEffect } from "@react-navigation/native";
 
@@ -15,9 +15,11 @@ import { Container, LoadingContainer } from "./styles";
 
 export function Items() {
   const [items, setItems] = useState<ResultsDTO[]>([]);
-  const [itemsPerPage, setItemsPerPage] = useState(24);
+  const [itemsPerPage, setItemsPerPage] = useState(27);
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+
+  const toast = useToast();
 
   async function loadItems() {
     try {
@@ -27,7 +29,11 @@ export function Items() {
       );
       setItems(response.data.results);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error load data!",
+        bgColor: "red.400",
+        placement: "top",
+      });
     } finally {
       setIsLoading(false);
     }

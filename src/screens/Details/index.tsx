@@ -70,7 +70,11 @@ export function Details() {
     try {
       addToFavorites(url);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error! Try again.",
+        bgColor: "red.400",
+        placement: "top",
+      });
     }
   }
 

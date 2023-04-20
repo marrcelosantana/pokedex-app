@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { FlatList } from "react-native";
-import { Center } from "native-base";
+import { Center, useToast } from "native-base";
 
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
@@ -25,6 +25,7 @@ export function Favorites() {
   const { favorites, loadFavorites } = useContext(PokeContext);
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();
+  const toast = useToast();
 
   function handleOpenDetails(url: string) {
     navigation.navigate("details", { url });
@@ -35,7 +36,11 @@ export function Favorites() {
       await clearStorage();
       loadFavorites();
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error! Try again.",
+        bgColor: "red.400",
+        placement: "top",
+      });
     }
   }
 

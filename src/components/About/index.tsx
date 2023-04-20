@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { View } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
-import { Center } from "native-base";
+import { Center, useToast } from "native-base";
 
 import { SpeciesDTO } from "@models/SpeciesDTO";
 import { PokemonDTO } from "@models/PokemonDTO";
@@ -19,12 +19,19 @@ type Props = {
 export function About({ pokemon }: Props) {
   const [specieData, setSpecieData] = useState<SpeciesDTO>();
 
+  const toast = useToast();
+
   async function loadSpeciesData() {
     try {
       const response = await api.get(`${pokemon.species.url}`);
       setSpecieData(response.data);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error loading data!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     }
   }
 

@@ -1,3 +1,4 @@
+import { useToast } from "native-base";
 import { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 
@@ -13,12 +14,19 @@ type Props = {
 export function ItemCard({ url }: Props) {
   const [data, setData] = useState<ItemDTO>();
 
+  const toast = useToast();
+
   async function loadItemData() {
     try {
       const response = await api.get(`${url}`);
       setData(response.data);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error loading data!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     }
   }
 

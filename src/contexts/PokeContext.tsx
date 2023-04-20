@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useState } from "react";
+import { useToast } from "native-base";
 import {
   storageFavoritesCreate,
   storageFavoritesGetAll,
@@ -21,12 +22,19 @@ export function PokeProvider({ children }: PokeProviderProps) {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const toast = useToast();
+
   async function loadFavorites() {
     try {
       const data = await storageFavoritesGetAll();
       setFavorites(data);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error loading data!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     }
   }
 
@@ -36,7 +44,12 @@ export function PokeProvider({ children }: PokeProviderProps) {
       loadFavorites();
       setIsFavorite(!isFavorite);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error! Try again.",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     }
   }
 

@@ -6,6 +6,7 @@ import {
   Pressable,
 } from "react-native";
 
+import { useToast } from "native-base";
 import { useFocusEffect } from "@react-navigation/native";
 
 import { Star } from "phosphor-react-native";
@@ -27,6 +28,8 @@ type Props = TouchableOpacityProps & {
 export function PokeCard({ url, ...rest }: Props) {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
 
+  const toast = useToast();
+
   const { favorites, addToFavorites } = useContext(PokeContext);
 
   async function loadPokemonData() {
@@ -34,7 +37,12 @@ export function PokeCard({ url, ...rest }: Props) {
       const response = await api.get(url);
       setPokemon(response.data);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error loading data!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     }
   }
 
@@ -42,7 +50,12 @@ export function PokeCard({ url, ...rest }: Props) {
     try {
       addToFavorites(url);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error! Try again!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     }
   }
 

@@ -57,7 +57,12 @@ export function Home() {
       );
       setPokemons(response.data.results);
     } catch (error) {
-      console.log(error);
+      toast.show({
+        title: "Error loading data!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -71,6 +76,9 @@ export function Home() {
     } catch (error) {
       toast.show({
         title: "Pokemon not found!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
       });
       reset();
     }
