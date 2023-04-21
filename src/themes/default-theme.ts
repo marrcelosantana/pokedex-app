@@ -10,16 +10,15 @@ export default {
 
     GRAY_700: "#121214",
     GRAY_600: "#202024",
-    GRAY_500: "#4d4d4d",
     GRAY_400: "#ababab",
-    GRAY_300: "#7C7C8A",
     GRAY_200: "#f4f4f4",
     GRAY_100: "#E1E1E6",
 
     TEXT: "#4d4d4d",
     TITLE: "#363f5f",
     TEXT_BODY: "#969cb3",
-    BACKGROUND: "#f8f8ff  ",
+
+    BACKGROUND: "#f8f8ff",
 
     //PokeTypes Colors:
     GREEN_GRASS: "#78C850",
@@ -30,7 +29,7 @@ export default {
     ORANGE_FIGHT: "#C03028",
     BLUE_WATER: "#6890F0",
     BLUE_ICE: "#51c4e7",
-    SILVER_FLY: "#bdb9b8",
+    SILVER_FLY: "#A890F0",
     GREY_NORMAL: "#A8A878",
     GREY_STEEL: "#B8B8D0",
     GREY_DARK: "#705848",

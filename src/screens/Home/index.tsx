@@ -14,12 +14,12 @@ import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
 import { Input } from "@components/Input";
 import { Header } from "@components/Header";
-import { Menu } from "@components/Menu/Menu";
 
 import { ResultsDTO } from "@models/ResultsDTO";
 import { MagnifyingGlass } from "phosphor-react-native";
 
 import {
+  CardList,
   Container,
   Form,
   LoadingContainer,
@@ -120,25 +120,23 @@ export function Home() {
             </SearchBtn>
           </Form>
 
-          <MenuContainer>
-            <Menu setPage={setCurrentPage} />
-          </MenuContainer>
-
-          <FlatList
-            data={pokemons}
-            keyExtractor={(item) => item.name}
-            renderItem={({ item }) => (
-              <PokeCard
-                url={item.url}
-                onPress={() => handleOpenDetails(item.url)}
-              />
-            )}
-            showsVerticalScrollIndicator={false}
-            onEndReached={() => {
-              setPokemonPerPage(pokemonPerPage + 12);
-            }}
-            onEndReachedThreshold={0.5}
-          />
+          <CardList>
+            <FlatList
+              data={pokemons}
+              keyExtractor={(item) => item.name}
+              renderItem={({ item }) => (
+                <PokeCard
+                  url={item.url}
+                  onPress={() => handleOpenDetails(item.url)}
+                />
+              )}
+              showsVerticalScrollIndicator={false}
+              onEndReached={() => {
+                setPokemonPerPage(pokemonPerPage + 12);
+              }}
+              onEndReachedThreshold={0.5}
+            />
+          </CardList>
 
           {isLoading && (
             <LoadingContainer>

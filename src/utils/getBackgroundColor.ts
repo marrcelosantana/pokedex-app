@@ -22,7 +22,7 @@ export const getBackgroundColor = (type: string | undefined) => {
     case "ground":
       return [theme.COLORS.YELLOW_GROUND, "#EBD69D"];
     case "flying":
-      return [theme.COLORS.SILVER_FLY, "#00BFFF"];
+      return [theme.COLORS.SILVER_FLY, "#C6B7F5"];
     case "psychic":
       return [theme.COLORS.PINK_PSYCHIC, "#FA92B2"];
     case "bug":

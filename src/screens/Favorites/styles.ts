@@ -4,6 +4,7 @@ export const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   padding: 80px 20px 0 20px;
 `;
 
@@ -24,6 +25,7 @@ export const Text = styled.Text`
 export const CardsContainer = styled.View`
   width: 100%;
   margin-top: 20px;
+  flex: 1;
 `;
 
 export const RemoveBtn = styled.Pressable`

@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.COLORS.GRAY_200};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   padding: 80px 20px 0px 20px;
 `;
 
@@ -48,4 +48,8 @@ export const MenuContainer = styled.View`
   width: 100%;
   align-items: flex-end;
   margin-bottom: 10px;
+`;
+
+export const CardList = styled.View`
+  flex: 1;
 `;
