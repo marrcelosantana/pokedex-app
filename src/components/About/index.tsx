@@ -72,8 +72,8 @@ export function About({ pokemon }: Props) {
 
           <Infos>
             <Label>Habitat:</Label>
-            {specieData.habitat.name ? (
-              <Info> {specieData.habitat?.name}</Info>
+            {specieData?.habitat?.name ? (
+              <Info> {specieData.habitat.name}</Info>
             ) : (
               <Info> Unknow</Info>
             )}
