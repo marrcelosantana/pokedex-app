@@ -45,8 +45,8 @@ export function About({ pokemon }: Props) {
     <>
       {specieData ? (
         <Container showsVerticalScrollIndicator={false}>
-          {specieData?.flavor_text_entries[8]?.flavor_text ? (
-            <Title>{specieData?.flavor_text_entries[8]?.flavor_text}</Title>
+          {specieData.flavor_text_entries[8].flavor_text ? (
+            <Title>{specieData.flavor_text_entries[8].flavor_text}</Title>
           ) : (
             <Title>Not information yet.</Title>
           )}
@@ -72,8 +72,8 @@ export function About({ pokemon }: Props) {
 
           <Infos>
             <Label>Habitat:</Label>
-            {specieData?.habitat?.name ? (
-              <Info> {specieData?.habitat?.name}</Info>
+            {specieData.habitat.name ? (
+              <Info> {specieData.habitat?.name}</Info>
             ) : (
               <Info> Unknow</Info>
             )}

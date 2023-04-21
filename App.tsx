@@ -1,4 +1,4 @@
-import { StatusBar, LogBox } from "react-native";
+import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "@themes/default-theme";
 
@@ -14,10 +14,6 @@ import { NativeBaseProvider } from "native-base";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
-
-  LogBox.ignoreLogs([
-    "React has detected a change in the order of Hooks called by PokeCard.This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://reactjs.org/link/rules-of-hooks",
-  ]);
 
   return (
     <NativeBaseProvider>

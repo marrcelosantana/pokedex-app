@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import {
   TouchableOpacity,
   View,
@@ -7,7 +7,6 @@ import {
 } from "react-native";
 
 import { Center, useToast } from "native-base";
-import { useFocusEffect } from "@react-navigation/native";
 
 import { Star } from "phosphor-react-native";
 
@@ -73,11 +72,9 @@ export function PokeCard({ url, ...rest }: Props) {
     return isFavorite;
   }
 
-  useFocusEffect(
-    useCallback(() => {
-      loadPokemonData();
-    }, [])
-  );
+  useEffect(() => {
+    loadPokemonData();
+  }, []);
 
   return (
     <TouchableOpacity {...rest}>

@@ -41,7 +41,7 @@ export function PokeProvider({ children }: PokeProviderProps) {
   async function addToFavorites(url: string) {
     try {
       await storageFavoritesCreate(url);
-      loadFavorites();
+      await loadFavorites();
       setIsFavorite(!isFavorite);
     } catch (error) {
       toast.show({

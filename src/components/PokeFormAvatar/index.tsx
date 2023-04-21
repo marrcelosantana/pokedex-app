@@ -51,7 +51,7 @@ export function PokeFormAvatar({ variety }: Props) {
           >
             <Avatar
               source={{
-                uri: data?.sprites.other["official-artwork"].front_default,
+                uri: data.sprites.other["official-artwork"].front_default,
               }}
             />
           </AvatarContainer>
