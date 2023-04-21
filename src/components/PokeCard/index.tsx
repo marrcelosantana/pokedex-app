@@ -6,7 +6,7 @@ import {
   Pressable,
 } from "react-native";
 
-import { useToast } from "native-base";
+import { Center, useToast } from "native-base";
 import { useFocusEffect } from "@react-navigation/native";
 
 import { Star } from "phosphor-react-native";
@@ -16,6 +16,7 @@ import { api } from "@services/api";
 
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 import { getTypeIcon } from "@utils/getTypeIcon";
+import { Loading } from "@components/Loading";
 
 import { PokeContext } from "@contexts/PokeContext";
 
@@ -26,16 +27,19 @@ type Props = TouchableOpacityProps & {
 };
 
 export function PokeCard({ url, ...rest }: Props) {
+  const { favorites, addToFavorites, loadFavorites } = useContext(PokeContext);
+
   const [pokemon, setPokemon] = useState<PokemonDTO>();
+  const isFavorite = checkIsFavorite();
 
   const toast = useToast();
-
-  const { favorites, addToFavorites } = useContext(PokeContext);
 
   async function loadPokemonData() {
     try {
       const response = await api.get(url);
       setPokemon(response.data);
+      loadFavorites();
+      checkIsFavorite();
     } catch (error) {
       toast.show({
         title: "Error loading data!",
@@ -59,18 +63,15 @@ export function PokeCard({ url, ...rest }: Props) {
     }
   }
 
-  function checkIsFavorite(url: string) {
+  function checkIsFavorite() {
     let isFavorite = false;
     favorites.map((item) => {
       if (item === url) {
         isFavorite = true;
       }
     });
-
     return isFavorite;
   }
-
-  const isFavorite = checkIsFavorite(url);
 
   useFocusEffect(
     useCallback(() => {
@@ -80,27 +81,27 @@ export function PokeCard({ url, ...rest }: Props) {
 
   return (
     <TouchableOpacity {...rest}>
-      <Container
-        start={{ x: 0, y: 1 }}
-        end={{ x: 1, y: 0 }}
-        colors={[
-          getBackgroundColor(pokemon?.types[0].type.name)[0],
-          getBackgroundColor(pokemon?.types[0].type.name)[1],
-        ]}
-      >
-        <View>
+      {pokemon ? (
+        <Container
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 0 }}
+          colors={[
+            getBackgroundColor(pokemon.types[0].type.name)[0],
+            getBackgroundColor(pokemon.types[0].type.name)[1],
+          ]}
+        >
           <View>
-            {pokemon?.id && pokemon?.id < 10 && <Title>#00{pokemon?.id}</Title>}
-            {pokemon?.id && pokemon?.id >= 10 && pokemon.id < 100 && (
-              <Title>#0{pokemon?.id}</Title>
-            )}
-            {pokemon?.id && pokemon?.id >= 100 && <Title>#{pokemon?.id}</Title>}
-            <Title style={{ marginTop: 8 }}>{pokemon?.name}</Title>
-          </View>
+            <View>
+              {pokemon.id && pokemon.id < 10 && <Title>#00{pokemon.id}</Title>}
+              {pokemon.id && pokemon.id >= 10 && pokemon.id < 100 && (
+                <Title>#0{pokemon.id}</Title>
+              )}
+              {pokemon.id && pokemon.id >= 100 && <Title>#{pokemon.id}</Title>}
+              <Title style={{ marginTop: 8 }}>{pokemon.name}</Title>
+            </View>
 
-          <TypesContainer>
-            {pokemon &&
-              pokemon?.types.map((type) => (
+            <TypesContainer>
+              {pokemon.types.map((type) => (
                 <TypeImage
                   source={{
                     uri: getTypeIcon(type.type.name),
@@ -108,11 +109,10 @@ export function PokeCard({ url, ...rest }: Props) {
                   key={type.type.name}
                 />
               ))}
-          </TypesContainer>
-        </View>
+            </TypesContainer>
+          </View>
 
-        <View>
-          {pokemon && (
+          <View>
             <Pressable
               onPress={() => {
                 handleFavorite(url);
@@ -125,15 +125,19 @@ export function PokeCard({ url, ...rest }: Props) {
                 style={{ marginLeft: 100, position: "absolute" }}
               />
             </Pressable>
-          )}
 
-          <Avatar
-            source={{
-              uri: pokemon?.sprites.other["official-artwork"].front_default,
-            }}
-          />
-        </View>
-      </Container>
+            <Avatar
+              source={{
+                uri: pokemon.sprites.other["official-artwork"].front_default,
+              }}
+            />
+          </View>
+        </Container>
+      ) : (
+        <Center flex={1}>
+          <Loading />
+        </Center>
+      )}
     </TouchableOpacity>
   );
 }
