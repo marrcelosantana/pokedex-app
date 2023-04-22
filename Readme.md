@@ -26,7 +26,7 @@ Está lançada a versão mobile da minha pokédex! Aqui você aprende tudo sobre
 # Clone este repositório
 $ git clone https://github.com/marrcelosantana/pokedex-app
 # Acesse a pasta do projeto
-$ cd pokedex
+$ cd pokedex-app
 # Instale as dependências
 $ npm install
 # Execute a aplicação em modo de desenvolvimento
