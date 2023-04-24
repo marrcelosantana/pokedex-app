@@ -7,6 +7,7 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   font-size: 18px;
   text-transform: capitalize;
 `;

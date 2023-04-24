@@ -14,4 +14,5 @@ export const Title = styled.Text`
   text-transform: uppercase;
   margin-bottom: 2px;
   color: ${({ theme }) => theme.COLORS.TEXT};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
 `;

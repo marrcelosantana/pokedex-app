@@ -16,7 +16,7 @@ export const LogoImg = styled.Image`
 
 export const Title = styled.Text`
   font-size: 32px;
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   margin-top: 12px;
   color: ${({ theme }) => theme.COLORS.TEXT};
 `;

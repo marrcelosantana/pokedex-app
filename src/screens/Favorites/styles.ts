@@ -18,7 +18,7 @@ export const Highlight = styled.View`
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT};
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: 18px;
 `;
 

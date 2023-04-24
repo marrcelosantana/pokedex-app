@@ -15,7 +15,7 @@ export const Container = styled(LinearGradient)`
 export const Title = styled.Text`
   font-size: 18px;
   text-transform: capitalize;
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   color: white;
 `;
 

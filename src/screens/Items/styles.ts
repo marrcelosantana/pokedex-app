@@ -15,6 +15,7 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
 `;
 
 export const CardList = styled.View`

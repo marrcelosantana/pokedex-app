@@ -17,7 +17,7 @@ export const Actions = styled.View`
 
 export const Name = styled.Text`
   font-size: 24px;
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   text-transform: capitalize;
   color: white;
 `;
@@ -55,6 +55,7 @@ export const Header = styled.View`
 `;
 
 export const TabTitle = styled.Text`
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   color: ${({ theme }) => theme.COLORS.TEXT};
   font-size: 16px;
 `;

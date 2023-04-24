@@ -18,8 +18,8 @@ export const Sprite = styled.Image`
 `;
 
 export const Title = styled.Text`
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 12px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   color: ${({ theme }) => theme.COLORS.TEXT};
   text-transform: capitalize;
 `;

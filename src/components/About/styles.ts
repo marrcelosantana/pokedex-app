@@ -9,6 +9,7 @@ export const Title = styled.Text`
   font-size: 18px;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.COLORS.TEXT};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
 `;
 
 export const Infos = styled.Text`
@@ -18,11 +19,13 @@ export const Infos = styled.Text`
 `;
 
 export const Label = styled.Text`
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   color: ${({ theme }) => theme.COLORS.TEXT_BODY};
   font-size: 16px;
 `;
 
 export const Info = styled.Text`
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   text-transform: capitalize;
   font-size: 16px;
 `;
@@ -39,5 +42,5 @@ export const Type = styled.View`
 export const TypeName = styled.Text`
   color: white;
   text-transform: capitalize;
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
 `;
