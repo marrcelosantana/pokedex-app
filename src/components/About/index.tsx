@@ -1,10 +1,12 @@
 import { useCallback, useState } from "react";
 import { View } from "react-native";
+
 import { useFocusEffect } from "@react-navigation/native";
 import { Center, useToast } from "native-base";
 
 import { SpeciesDTO } from "@models/SpeciesDTO";
 import { PokemonDTO } from "@models/PokemonDTO";
+
 import { api } from "@services/api";
 import { Loading } from "@components/Loading";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
