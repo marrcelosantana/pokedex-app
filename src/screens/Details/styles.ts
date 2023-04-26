@@ -1,10 +1,11 @@
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 18% 0px;
+  padding: ${RFPercentage(8)}px 0px;
 `;
 
 export const Actions = styled.View`
@@ -34,8 +35,8 @@ export const AvatarContainer = styled.View`
 `;
 
 export const Avatar = styled.Image`
-  width: 250px;
-  height: 250px;
+  width: ${RFValue(230)}px;
+  height: ${RFValue(230)}px;
 `;
 
 export const InfoContainer = styled.View`
