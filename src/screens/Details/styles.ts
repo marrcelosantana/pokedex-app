@@ -4,7 +4,7 @@ export const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 80px 0px;
+  padding: 18% 0px;
 `;
 
 export const Actions = styled.View`
@@ -34,8 +34,8 @@ export const AvatarContainer = styled.View`
 `;
 
 export const Avatar = styled.Image`
-  width: 280px;
-  height: 280px;
+  width: 250px;
+  height: 250px;
 `;
 
 export const InfoContainer = styled.View`

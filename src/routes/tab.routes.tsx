@@ -33,13 +33,13 @@ export function TabRoutes() {
         tabBarActiveTintColor: theme.COLORS.BLUE_WATER,
         tabBarInactiveTintColor: theme.COLORS.GRAY_400,
         tabBarStyle: {
-          height: Platform.OS === "android" ? "auto" : 50,
+          height: 50,
           width: "80%",
           borderRadius: 9999,
-          marginBottom: 50,
+          marginBottom: 42,
           marginLeft: 35,
           position: "absolute",
-          paddingTop: 30,
+          paddingTop: Platform.OS === "android" ? 2 : 30,
           borderTopWidth: 0,
           shadowColor: "#000",
           shadowOpacity: 0.1,
@@ -52,8 +52,8 @@ export function TabRoutes() {
         name="home"
         component={Home}
         options={{
-          tabBarIcon: ({ color }) => (
-            <House size={24} color={color} weight="bold" />
+          tabBarIcon: ({ color, size }) => (
+            <House size={size} color={color} weight="bold" />
           ),
         }}
       />
@@ -62,8 +62,8 @@ export function TabRoutes() {
         name="favorites"
         component={Favorites}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Star size={24} color={color} weight="bold" />
+          tabBarIcon: ({ color, size }) => (
+            <Star size={size} color={color} weight="bold" />
           ),
         }}
       />
@@ -72,8 +72,8 @@ export function TabRoutes() {
         name="items"
         component={Items}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Backpack size={24} color={color} weight="bold" />
+          tabBarIcon: ({ color, size }) => (
+            <Backpack size={size} color={color} weight="bold" />
           ),
         }}
       />
