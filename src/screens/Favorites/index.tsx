@@ -70,6 +70,8 @@ export function Favorites() {
             <FlatList
               data={favorites}
               keyExtractor={(item) => item}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={{ paddingBottom: 24 }}
               renderItem={({ item }) => (
                 <PokeCard
                   url={item}
@@ -78,7 +80,6 @@ export function Favorites() {
                   }}
                 />
               )}
-              showsVerticalScrollIndicator={false}
             />
           </CardsContainer>
         </Container>
