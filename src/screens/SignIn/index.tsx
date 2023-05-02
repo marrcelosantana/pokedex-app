@@ -1,9 +1,11 @@
+import { useToast } from "native-base";
+
 import AppleLogo from "@assets/apple.svg";
 import GoogleLogo from "@assets/google.svg";
-
 import PikachuLogo from "@assets/pikachu.png";
 
 import { SocialButton } from "@components/SocialButton";
+import { useAuth } from "@hooks/useAuth";
 
 import {
   Actions,
@@ -15,6 +17,23 @@ import {
 } from "./styles";
 
 export function SignIn() {
+  const { signInWithGoogle } = useAuth();
+
+  const toast = useToast();
+
+  async function handleSignInWithGoogle() {
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      toast.show({
+        title: "Pokemon not found!",
+        placement: "top",
+        bgColor: "red.300",
+        color: "gray.100",
+      });
+    }
+  }
+
   return (
     <Container>
       <LogoContainer>
@@ -23,7 +42,11 @@ export function SignIn() {
       </LogoContainer>
 
       <Actions>
-        <SocialButton title="Sign in with Google" svg={GoogleLogo} />
+        <SocialButton
+          title="Sign in with Google"
+          svg={GoogleLogo}
+          onPress={handleSignInWithGoogle}
+        />
         <SocialButton title="Sign in with Apple" svg={AppleLogo} />
         <Subtitle>Choose a option</Subtitle>
       </Actions>
