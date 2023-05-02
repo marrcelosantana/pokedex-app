@@ -5,20 +5,20 @@ import {
   storageFavoritesGetAll,
 } from "@storage/storageFavorite";
 
-interface PokeContextType {
+interface FavoritesContextType {
   favorites: string[];
   isFavorite: boolean;
   loadFavorites: () => void;
   addToFavorites: (url: string) => void;
 }
 
-interface PokeProviderProps {
+interface FavoritesProviderProps {
   children: ReactNode;
 }
 
-export const PokeContext = createContext({} as PokeContextType);
+export const FavoritesContext = createContext({} as FavoritesContextType);
 
-export function PokeProvider({ children }: PokeProviderProps) {
+export function FavoritesProvider({ children }: FavoritesProviderProps) {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -54,10 +54,10 @@ export function PokeProvider({ children }: PokeProviderProps) {
   }
 
   return (
-    <PokeContext.Provider
+    <FavoritesContext.Provider
       value={{ favorites, isFavorite, loadFavorites, addToFavorites }}
     >
       {children}
-    </PokeContext.Provider>
+    </FavoritesContext.Provider>
   );
 }

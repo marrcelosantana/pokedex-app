@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { useCallback } from "react";
 import { FlatList } from "react-native";
 import { Center, useToast } from "native-base";
 
@@ -6,8 +6,8 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
 import { Trash } from "phosphor-react-native";
 
-import { PokeContext } from "@contexts/PokeContext";
 import { clearStorage } from "@storage/storageFavorite";
+import { useFavorites } from "@hooks/useFavorites";
 
 import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
@@ -22,7 +22,7 @@ import {
 } from "./styles";
 
 export function Favorites() {
-  const { favorites, loadFavorites } = useContext(PokeContext);
+  const { favorites, loadFavorites } = useFavorites();
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();
   const toast = useToast();

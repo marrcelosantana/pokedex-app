@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { Pressable, TouchableOpacity } from "react-native";
 import { useToast } from "native-base";
 import { ArrowLeft, Star } from "phosphor-react-native";
@@ -13,13 +13,14 @@ import {
 import { PokemonDTO } from "@models/PokemonDTO";
 import { api } from "@services/api";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
-import { PokeContext } from "@contexts/PokeContext";
 
 import { Loading } from "@components/Loading";
 import { About } from "@components/About";
 import { Stats } from "@components/Stats";
 import { Forms } from "@components/Forms";
 import { Shiny } from "@components/Shiny";
+
+import { useFavorites } from "@hooks/useFavorites";
 
 import {
   Actions,
@@ -41,7 +42,7 @@ type RouteParams = {
 export function Details() {
   const [pokemon, setPokemon] = useState<PokemonDTO>();
 
-  const { favorites, addToFavorites } = useContext(PokeContext);
+  const { favorites, addToFavorites } = useFavorites();
 
   const tabs = ["About", "Stats", "Forms", "Shiny"];
   const [tabSelected, setTabSelected] = useState<String>("About");

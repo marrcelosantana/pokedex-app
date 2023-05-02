@@ -23,7 +23,6 @@ import {
   Container,
   Form,
   LoadingContainer,
-  MenuContainer,
   SearchBtn,
 } from "./styles";
 
@@ -111,6 +110,9 @@ export function Home() {
                   mb={2}
                   value={value}
                   onChangeText={onChange}
+                  autoCapitalize="sentences"
+                  autoCorrect={false}
+                  autoComplete="off"
                 />
               )}
             />

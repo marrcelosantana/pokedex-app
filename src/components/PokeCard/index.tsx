@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   TouchableOpacity,
   View,
@@ -16,8 +16,7 @@ import { api } from "@services/api";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 import { getTypeIcon } from "@utils/getTypeIcon";
 import { Loading } from "@components/Loading";
-
-import { PokeContext } from "@contexts/PokeContext";
+import { useFavorites } from "@hooks/useFavorites";
 
 import { Avatar, Container, Title, TypeImage, TypesContainer } from "./styles";
 
@@ -26,7 +25,7 @@ type Props = TouchableOpacityProps & {
 };
 
 export function PokeCard({ url, ...rest }: Props) {
-  const { favorites, addToFavorites, loadFavorites } = useContext(PokeContext);
+  const { favorites, addToFavorites, loadFavorites } = useFavorites();
 
   const [pokemon, setPokemon] = useState<PokemonDTO>();
   const isFavorite = checkIsFavorite();
