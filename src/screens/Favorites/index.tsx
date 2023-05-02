@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { FlatList } from "react-native";
-import { Center, useToast } from "native-base";
+import { Center } from "native-base";
+import { useTheme } from "styled-components";
 
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
@@ -12,14 +13,24 @@ import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
 import { Header } from "@components/Header";
 
-import { CardsContainer, Container, Highlight, Text } from "./styles";
+import { Star } from "phosphor-react-native";
+
+import {
+  CardsContainer,
+  Container,
+  EmptyList,
+  EmptyText,
+  Highlight,
+  Text,
+} from "./styles";
 
 export function Favorites() {
   const { user } = useAuth();
   const { favorites, loadFavorites } = useFavorites();
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();
-  const toast = useToast();
+
+  const theme = useTheme();
 
   function handleOpenDetails(url: string) {
     navigation.navigate("details", { url });
@@ -58,6 +69,12 @@ export function Favorites() {
                     handleOpenDetails(item);
                   }}
                 />
+              )}
+              ListEmptyComponent={() => (
+                <EmptyList>
+                  <Star size={42} color={theme.COLORS.TEXT_BODY} />
+                  <EmptyText>No favorites yet</EmptyText>
+                </EmptyList>
               )}
             />
           </CardsContainer>
