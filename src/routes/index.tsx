@@ -11,8 +11,6 @@ export function Routes() {
   const { user } = useAuth();
   const theme = useTheme();
 
-  console.log(user);
-
   return (
     <View style={{ flex: 1, backgroundColor: theme.COLORS.BACKGROUND }}>
       <NavigationContainer>

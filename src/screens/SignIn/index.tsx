@@ -17,7 +17,7 @@ import {
 } from "./styles";
 
 export function SignIn() {
-  const { signInWithGoogle } = useAuth();
+  const { signInWithGoogle, signInWithApple } = useAuth();
 
   const toast = useToast();
 
@@ -47,7 +47,11 @@ export function SignIn() {
           svg={GoogleLogo}
           onPress={handleSignInWithGoogle}
         />
-        <SocialButton title="Sign in with Apple" svg={AppleLogo} />
+        <SocialButton
+          title="Sign in with Apple"
+          svg={AppleLogo}
+          onPress={signInWithApple}
+        />
         <Subtitle>Choose a option</Subtitle>
       </Actions>
     </Container>

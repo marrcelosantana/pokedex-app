@@ -25,6 +25,7 @@ import {
   LoadingContainer,
   SearchBtn,
 } from "./styles";
+import { UserInfo } from "@components/UserInfo";
 
 type FormDataProps = {
   query: string;
@@ -95,11 +96,7 @@ export function Home() {
     <>
       {pokemons ? (
         <Container>
-          <Header
-            title="PokéDex"
-            url="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif"
-          />
-
+          <UserInfo />
           <Form>
             <Controller
               control={control}

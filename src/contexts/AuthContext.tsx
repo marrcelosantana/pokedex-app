@@ -1,13 +1,22 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
+import { useToast } from "native-base";
 
 import * as AuthSession from "expo-auth-session";
+import * as AppleAuthentication from "expo-apple-authentication";
 
-import { storageUserCreate } from "@storage/storageUser";
+import {
+  storageUserCreate,
+  storageUserGet,
+  storageUserRemove,
+} from "@storage/storageUser";
+
 import { UserDTO } from "@models/UserDTO";
 
 interface AuthContextType {
   user: UserDTO;
   signInWithGoogle: () => Promise<void>;
+  signInWithApple: () => Promise<void>;
+  signOut: () => Promise<void>;
 }
 
 interface AuthProviderProps {
@@ -25,6 +34,8 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserDTO>({} as UserDTO);
+
+  const toast = useToast();
 
   async function signInWithGoogle() {
     try {
@@ -61,8 +72,65 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
+  async function signInWithApple() {
+    try {
+      const credential = await AppleAuthentication.signInAsync({
+        requestedScopes: [
+          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+          AppleAuthentication.AppleAuthenticationScope.EMAIL,
+        ],
+      });
+
+      if (credential) {
+        const name = credential.fullName!.givenName!;
+        const picture = `https://ui-avatars.com/api/?name=${name}&lenght=1`;
+
+        const userInfo = {
+          id: String(credential.user),
+          email: credential.email!,
+          name,
+          picture,
+        };
+
+        setUser(userInfo);
+        await storageUserCreate(userInfo);
+      }
+    } catch (error) {
+      throw new Error(String(error));
+    }
+  }
+
+  async function signOut() {
+    try {
+      await storageUserRemove();
+      setUser({} as UserDTO);
+    } catch (error) {
+      throw new Error(String(error));
+    }
+  }
+
+  async function loadUser() {
+    try {
+      const response = await storageUserGet();
+      setUser(response);
+    } catch (error) {
+      await toast.show({
+        title: "Não foi possível logar!",
+        placement: "top",
+        background: "red.500",
+        color: "gray.100",
+      });
+    }
+  }
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider
+      value={{ user, signInWithGoogle, signInWithApple, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
