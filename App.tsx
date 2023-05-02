@@ -14,6 +14,7 @@ import { Loading } from "@components/Loading";
 import { Routes } from "@routes/index";
 
 import { FavoritesProvider } from "@contexts/FavoritesContext";
+import { AuthProvider } from "@contexts/AuthContext";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
@@ -26,9 +27,11 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
-        <FavoritesProvider>
-          {fontsLoaded ? <Routes /> : <Loading />}
-        </FavoritesProvider>
+        <AuthProvider>
+          <FavoritesProvider>
+            {fontsLoaded ? <Routes /> : <Loading />}
+          </FavoritesProvider>
+        </AuthProvider>
       </ThemeProvider>
     </NativeBaseProvider>
   );
