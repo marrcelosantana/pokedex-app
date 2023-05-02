@@ -1,7 +1,6 @@
-import { useCallback, useState } from "react";
+import { useState, useEffect } from "react";
 import { View } from "react-native";
 
-import { useFocusEffect } from "@react-navigation/native";
 import { Center, useToast } from "native-base";
 
 import { SpeciesDTO } from "@models/SpeciesDTO";
@@ -36,11 +35,9 @@ export function About({ pokemon }: Props) {
     }
   }
 
-  useFocusEffect(
-    useCallback(() => {
-      loadSpeciesData();
-    }, [])
-  );
+  useEffect(() => {
+    loadSpeciesData();
+  }, []);
 
   return (
     <>

@@ -8,8 +8,8 @@ import {
 interface FavoritesContextType {
   favorites: string[];
   isFavorite: boolean;
-  loadFavorites: () => void;
-  addToFavorites: (url: string) => void;
+  loadFavorites: () => Promise<void>;
+  addToFavorites: (url: string) => Promise<void>;
 }
 
 interface FavoritesProviderProps {

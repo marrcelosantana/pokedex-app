@@ -7,7 +7,6 @@ import {
 } from "react-native";
 
 import { Center, useToast } from "native-base";
-
 import { Star } from "phosphor-react-native";
 
 import { PokemonDTO } from "@models/PokemonDTO";
@@ -15,6 +14,7 @@ import { api } from "@services/api";
 
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 import { getTypeIcon } from "@utils/getTypeIcon";
+
 import { Loading } from "@components/Loading";
 import { useFavorites } from "@hooks/useFavorites";
 
@@ -28,15 +28,16 @@ export function PokeCard({ url, ...rest }: Props) {
   const { favorites, addToFavorites, loadFavorites } = useFavorites();
 
   const [pokemon, setPokemon] = useState<PokemonDTO>();
-  const isFavorite = checkIsFavorite();
 
+  const isFavorite = checkIsFavorite();
   const toast = useToast();
 
   async function loadPokemonData() {
     try {
       const response = await api.get(url);
       setPokemon(response.data);
-      loadFavorites();
+
+      await loadFavorites();
       checkIsFavorite();
     } catch (error) {
       toast.show({
@@ -48,9 +49,9 @@ export function PokeCard({ url, ...rest }: Props) {
     }
   }
 
-  function handleFavorite(url: string) {
+  async function handleFavorite(url: string) {
     try {
-      addToFavorites(url);
+      await addToFavorites(url);
     } catch (error) {
       toast.show({
         title: "Error! Try again!",

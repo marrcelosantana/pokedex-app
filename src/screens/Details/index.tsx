@@ -1,14 +1,10 @@
-import { useCallback, useState } from "react";
+import { useState, useEffect } from "react";
 import { Pressable, TouchableOpacity } from "react-native";
 import { useToast } from "native-base";
 import { ArrowLeft, Star } from "phosphor-react-native";
 
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
-import {
-  useFocusEffect,
-  useNavigation,
-  useRoute,
-} from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { PokemonDTO } from "@models/PokemonDTO";
 import { api } from "@services/api";
@@ -40,9 +36,9 @@ type RouteParams = {
 };
 
 export function Details() {
-  const [pokemon, setPokemon] = useState<PokemonDTO>();
-
   const { favorites, addToFavorites } = useFavorites();
+
+  const [pokemon, setPokemon] = useState<PokemonDTO>();
 
   const tabs = ["About", "Stats", "Forms", "Shiny"];
   const [tabSelected, setTabSelected] = useState<String>("About");
@@ -67,9 +63,9 @@ export function Details() {
     }
   }
 
-  function handleFavorite(url: string) {
+  async function handleFavorite(url: string) {
     try {
-      addToFavorites(url);
+      await addToFavorites(url);
     } catch (error) {
       toast.show({
         title: "Error! Try again.",
@@ -90,11 +86,9 @@ export function Details() {
     return isFavorite;
   }
 
-  useFocusEffect(
-    useCallback(() => {
-      loadPokemonData();
-    }, [])
-  );
+  useEffect(() => {
+    loadPokemonData();
+  }, []);
 
   return (
     <>

@@ -1,5 +1,4 @@
-import { useCallback, useState } from "react";
-import { useFocusEffect } from "@react-navigation/native";
+import { useState, useEffect } from "react";
 import { useToast } from "native-base";
 
 import { api } from "@services/api";
@@ -34,11 +33,9 @@ export function PokeFormAvatar({ variety }: Props) {
     }
   }
 
-  useFocusEffect(
-    useCallback(() => {
-      loadData();
-    }, [])
-  );
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return (
     <>

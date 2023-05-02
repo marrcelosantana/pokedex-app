@@ -34,7 +34,7 @@ export function Favorites() {
   async function handleClear() {
     try {
       await clearStorage();
-      loadFavorites();
+      await loadFavorites();
     } catch (error) {
       toast.show({
         title: "Error! Try again.",
