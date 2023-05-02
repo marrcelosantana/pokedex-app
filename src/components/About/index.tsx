@@ -80,9 +80,7 @@ export function About({ pokemon }: Props) {
           <View style={{ flexDirection: "row" }}>
             <Type
               style={{
-                backgroundColor: getBackgroundColor(
-                  pokemon.types[0].type.name
-                )[0],
+                backgroundColor: getBackgroundColor(pokemon.types[0].type.name),
               }}
             >
               <TypeName>{pokemon.types[0].type.name}</TypeName>
@@ -93,7 +91,7 @@ export function About({ pokemon }: Props) {
                 style={{
                   backgroundColor: getBackgroundColor(
                     pokemon.types[1].type.name
-                  )[0],
+                  ),
                   marginLeft: 10,
                 }}
               >

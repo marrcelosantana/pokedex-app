@@ -43,7 +43,7 @@ export function PokeFormAvatar({ variety }: Props) {
         <Container>
           <AvatarContainer
             style={{
-              borderColor: getBackgroundColor(data.types[0].type.name)[0],
+              borderColor: getBackgroundColor(data.types[0].type.name),
             }}
           >
             <Avatar

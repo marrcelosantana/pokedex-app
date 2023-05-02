@@ -12,7 +12,7 @@ export function Input({ ...rest }: IInputProps) {
       mt="8px"
       fontFamily={theme.FONT_FAMILY.REGULAR}
       borderWidth={1}
-      borderColor={theme.COLORS.BLUE_WATER}
+      borderColor={theme.COLORS.BLUE_500}
       mb={1}
       _focus={{
         bg: "gray.100",

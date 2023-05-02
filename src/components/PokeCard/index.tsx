@@ -81,7 +81,7 @@ export function PokeCard({ url, ...rest }: Props) {
       {pokemon && (
         <Container
           style={{
-            backgroundColor: getBackgroundColor(pokemon.types[0].type.name)[0],
+            backgroundColor: getBackgroundColor(pokemon.types[0].type.name),
           }}
         >
           <View>

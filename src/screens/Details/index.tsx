@@ -95,7 +95,7 @@ export function Details() {
       {pokemon ? (
         <Container
           style={{
-            backgroundColor: getBackgroundColor(pokemon?.types[0].type.name)[0],
+            backgroundColor: getBackgroundColor(pokemon?.types[0].type.name),
           }}
         >
           <Actions>
@@ -142,9 +142,7 @@ export function Details() {
                       style={
                         tab === tabSelected && {
                           fontWeight: "bold",
-                          color: getBackgroundColor(
-                            pokemon.types[0].type.name
-                          )[0],
+                          color: getBackgroundColor(pokemon.types[0].type.name),
                         }
                       }
                     >

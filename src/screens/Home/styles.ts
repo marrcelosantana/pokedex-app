@@ -29,7 +29,7 @@ export const SearchBtn = styled.Pressable`
   padding: 10px;
   flex-direction: row;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.COLORS.BLUE_WATER};
+  background-color: ${({ theme }) => theme.COLORS.BLUE_500};
 `;
 
 export const ButtonText = styled.Text`

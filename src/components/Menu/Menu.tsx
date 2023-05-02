@@ -57,7 +57,7 @@ export function Menu({ setPage }: Props) {
       width="100%"
       h="48px"
       borderWidth={1}
-      borderColor={theme.COLORS.BLUE_WATER}
+      borderColor={theme.COLORS.BLUE_500}
       accessibilityLabel="Choose Region"
       placeholder="Region"
       _selectedItem={{

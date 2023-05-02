@@ -26,7 +26,7 @@ export function Stats({ pokemon }: Props) {
                 value={item.base_stat}
                 w="100%"
                 _filledTrack={{
-                  bg: getBackgroundColor(pokemon.types[0].type.name)[0],
+                  bg: getBackgroundColor(pokemon.types[0].type.name),
                 }}
               />
             </ProgressContainer>

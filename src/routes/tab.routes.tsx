@@ -30,7 +30,7 @@ export function TabRoutes() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarActiveTintColor: theme.COLORS.BLUE_WATER,
+        tabBarActiveTintColor: theme.COLORS.BLUE_500,
         tabBarInactiveTintColor: theme.COLORS.GRAY_400,
         tabBarStyle: {
           height: 50,

@@ -1,41 +1,41 @@
 export const getBackgroundColor = (type: string | undefined) => {
   switch (type) {
     case "normal":
-      return ["#A8A878", "#C6C6A7"];
+      return "#A8A878";
     case "fire":
-      return ["#fd7d24", "#F5AC78"];
+      return "#fd7d24";
     case "water":
-      return ["#6890F0", "#ADD8E6"];
+      return "#6890F0";
     case "grass":
-      return ["#78C850", "#A7DB8D"];
+      return "#78C850";
     case "electric":
-      return ["#F8D030", "#FAE078"];
+      return "#F8D030";
     case "ice":
-      return ["#51c4e7", "#B0E0E6"];
+      return "#51c4e7";
     case "fighting":
-      return ["#C03028", "#D67873"];
+      return "#C03028";
     case "poison":
-      return ["#A040A0", "#C183C1"];
+      return "#A040A0";
     case "ground":
-      return ["#E0C068", "#EBD69D"];
+      return "#E0C068";
     case "flying":
-      return ["#A890F0", "#C6B7F5"];
+      return "#A890F0";
     case "psychic":
-      return ["#F85888", "#FA92B2"];
+      return "#F85888";
     case "bug":
-      return ["#A8B820", "#C6D16E"];
+      return "#A8B820";
     case "rock":
-      return ["#a38c21", "#D2B48C"];
+      return "#a38c21";
     case "ghost":
-      return ["#705898", "#A292BC"];
+      return "#705898";
     case "dragon":
-      return ["#7038F8", "#A27DFA"];
+      return "#7038F8";
     case "dark":
-      return ["#705848", "#A29288"];
+      return "#705848";
     case "steel":
-      return ["#B8B8D0", "#D1D1E0"];
+      return "#B8B8D0";
     case "fairy":
-      return ["#EE99AC", "#F4BDC9"];
+      return "#EE99AC";
     default:
       return "#E1E1E6";
   }
