@@ -78,14 +78,11 @@ export function PokeCard({ url, ...rest }: Props) {
 
   return (
     <TouchableOpacity {...rest}>
-      {pokemon ? (
+      {pokemon && (
         <Container
-          start={{ x: 0, y: 1 }}
-          end={{ x: 1, y: 0 }}
-          colors={[
-            getBackgroundColor(pokemon.types[0].type.name)[0],
-            getBackgroundColor(pokemon.types[0].type.name)[1],
-          ]}
+          style={{
+            backgroundColor: getBackgroundColor(pokemon.types[0].type.name)[0],
+          }}
         >
           <View>
             <View>
@@ -130,10 +127,6 @@ export function PokeCard({ url, ...rest }: Props) {
             />
           </View>
         </Container>
-      ) : (
-        <Center flex={1}>
-          <Loading />
-        </Center>
       )}
     </TouchableOpacity>
   );

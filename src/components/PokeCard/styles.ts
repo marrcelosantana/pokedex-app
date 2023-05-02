@@ -1,7 +1,6 @@
 import styled from "styled-components/native";
-import { LinearGradient } from "expo-linear-gradient";
 
-export const Container = styled(LinearGradient)`
+export const Container = styled.View`
   width: 100%;
   height: 130px;
   align-items: center;

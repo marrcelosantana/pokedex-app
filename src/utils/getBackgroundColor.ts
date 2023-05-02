@@ -1,45 +1,42 @@
-import { useTheme } from "styled-components/native";
-
 export const getBackgroundColor = (type: string | undefined) => {
-  const theme = useTheme();
   switch (type) {
     case "normal":
-      return [theme.COLORS.GREY_NORMAL, "#C6C6A7"];
+      return ["#A8A878", "#C6C6A7"];
     case "fire":
-      return [theme.COLORS.ORANGE_FIRE, "#F5AC78"];
+      return ["#fd7d24", "#F5AC78"];
     case "water":
-      return [theme.COLORS.BLUE_WATER, "#ADD8E6"];
+      return ["#6890F0", "#ADD8E6"];
     case "grass":
-      return [theme.COLORS.GREEN_GRASS, "#A7DB8D"];
+      return ["#78C850", "#A7DB8D"];
     case "electric":
-      return [theme.COLORS.YELLOW_ELECTRIC, "#FAE078"];
+      return ["#F8D030", "#FAE078"];
     case "ice":
-      return [theme.COLORS.BLUE_ICE, "#B0E0E6"];
+      return ["#51c4e7", "#B0E0E6"];
     case "fighting":
-      return [theme.COLORS.ORANGE_FIGHT, "#D67873"];
+      return ["#C03028", "#D67873"];
     case "poison":
-      return [theme.COLORS.PURPLE_POISON, "#C183C1"];
+      return ["#A040A0", "#C183C1"];
     case "ground":
-      return [theme.COLORS.YELLOW_GROUND, "#EBD69D"];
+      return ["#E0C068", "#EBD69D"];
     case "flying":
-      return [theme.COLORS.SILVER_FLY, "#C6B7F5"];
+      return ["#A890F0", "#C6B7F5"];
     case "psychic":
-      return [theme.COLORS.PINK_PSYCHIC, "#FA92B2"];
+      return ["#F85888", "#FA92B2"];
     case "bug":
-      return [theme.COLORS.GREEN_BUG, "#C6D16E"];
+      return ["#A8B820", "#C6D16E"];
     case "rock":
-      return [theme.COLORS.YELLOW_ROCK, "#D2B48C"];
+      return ["#a38c21", "#D2B48C"];
     case "ghost":
-      return [theme.COLORS.PURPLE_GHOST, "#A292BC"];
+      return ["#705898", "#A292BC"];
     case "dragon":
-      return [theme.COLORS.PURPLE_DRAGON, "#A27DFA"];
+      return ["#7038F8", "#A27DFA"];
     case "dark":
-      return [theme.COLORS.GREY_DARK, "#A29288"];
+      return ["#705848", "#A29288"];
     case "steel":
-      return [theme.COLORS.GREY_STEEL, "#D1D1E0"];
+      return ["#B8B8D0", "#D1D1E0"];
     case "fairy":
-      return [theme.COLORS.PINK_FAIRY, "#F4BDC9"];
+      return ["#EE99AC", "#F4BDC9"];
     default:
-      return theme.COLORS.GRAY_400;
+      return "#E1E1E6";
   }
 };
