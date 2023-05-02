@@ -3,11 +3,11 @@ import { FlatList } from "react-native";
 import { Center, useToast } from "native-base";
 
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { AppNavigatorRoutesProps } from "@routes/app.routes";
 import { Trash } from "phosphor-react-native";
 
 import { clearStorage } from "@storage/storageFavorite";
 import { useFavorites } from "@hooks/useFavorites";
+import { AppNavigatorRouterProps } from "@routes/app.routes";
 
 import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
@@ -24,7 +24,7 @@ import {
 export function Favorites() {
   const { favorites, loadFavorites } = useFavorites();
 
-  const navigation = useNavigation<AppNavigatorRoutesProps>();
+  const navigation = useNavigation<AppNavigatorRouterProps>();
   const toast = useToast();
 
   function handleOpenDetails(url: string) {

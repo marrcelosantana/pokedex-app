@@ -3,12 +3,12 @@ import { Pressable, TouchableOpacity } from "react-native";
 import { useToast } from "native-base";
 import { ArrowLeft, Star } from "phosphor-react-native";
 
-import { AppNavigatorRoutesProps } from "@routes/app.routes";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { PokemonDTO } from "@models/PokemonDTO";
 import { api } from "@services/api";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
+import { AppNavigatorRouterProps } from "@routes/app.routes";
 
 import { Loading } from "@components/Loading";
 import { About } from "@components/About";
@@ -45,7 +45,7 @@ export function Details() {
 
   const route = useRoute();
   const { url } = route.params as RouteParams;
-  const navigation = useNavigation<AppNavigatorRoutesProps>();
+  const navigation = useNavigation<AppNavigatorRouterProps>();
 
   const toast = useToast();
 
