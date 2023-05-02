@@ -16,6 +16,7 @@ import { Stats } from "@components/Stats";
 import { Forms } from "@components/Forms";
 import { Shiny } from "@components/Shiny";
 
+import { useAuth } from "@hooks/useAuth";
 import { useFavorites } from "@hooks/useFavorites";
 
 import {
@@ -36,6 +37,7 @@ type RouteParams = {
 };
 
 export function Details() {
+  const { user } = useAuth();
   const { favorites, addToFavorites } = useFavorites();
 
   const [pokemon, setPokemon] = useState<PokemonDTO>();
@@ -63,9 +65,9 @@ export function Details() {
     }
   }
 
-  async function handleFavorite(url: string) {
+  async function handleFavorite(url: string, userId: string) {
     try {
-      await addToFavorites(url);
+      await addToFavorites(url, userId);
     } catch (error) {
       toast.show({
         title: "Error! Try again.",
@@ -111,7 +113,7 @@ export function Details() {
 
             <Pressable
               onPress={() => {
-                handleFavorite(url);
+                handleFavorite(url, user.id);
               }}
             >
               <Star

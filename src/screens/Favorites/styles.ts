@@ -28,12 +28,3 @@ export const CardsContainer = styled.View`
   margin-top: 20px;
   flex: 1;
 `;
-
-export const RemoveBtn = styled.Pressable`
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #fff;
-  padding: 6px;
-  border-radius: 6px;
-  background-color: ${({ theme }) => theme.COLORS.RED};
-`;

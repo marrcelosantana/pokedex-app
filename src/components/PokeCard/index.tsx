@@ -6,7 +6,7 @@ import {
   Pressable,
 } from "react-native";
 
-import { Center, useToast } from "native-base";
+import { useToast } from "native-base";
 import { Star } from "phosphor-react-native";
 
 import { PokemonDTO } from "@models/PokemonDTO";
@@ -15,7 +15,7 @@ import { api } from "@services/api";
 import { getBackgroundColor } from "@utils/getBackgroundColor";
 import { getTypeIcon } from "@utils/getTypeIcon";
 
-import { Loading } from "@components/Loading";
+import { useAuth } from "@hooks/useAuth";
 import { useFavorites } from "@hooks/useFavorites";
 
 import { Avatar, Container, Title, TypeImage, TypesContainer } from "./styles";
@@ -25,6 +25,7 @@ type Props = TouchableOpacityProps & {
 };
 
 export function PokeCard({ url, ...rest }: Props) {
+  const { user } = useAuth();
   const { favorites, addToFavorites, loadFavorites } = useFavorites();
 
   const [pokemon, setPokemon] = useState<PokemonDTO>();
@@ -37,7 +38,7 @@ export function PokeCard({ url, ...rest }: Props) {
       const response = await api.get(url);
       setPokemon(response.data);
 
-      await loadFavorites();
+      await loadFavorites(user.id);
       checkIsFavorite();
     } catch (error) {
       toast.show({
@@ -49,9 +50,9 @@ export function PokeCard({ url, ...rest }: Props) {
     }
   }
 
-  async function handleFavorite(url: string) {
+  async function handleFavorite(url: string, userId: string) {
     try {
-      await addToFavorites(url);
+      await addToFavorites(url, userId);
     } catch (error) {
       toast.show({
         title: "Error! Try again!",
@@ -109,7 +110,7 @@ export function PokeCard({ url, ...rest }: Props) {
           <View>
             <Pressable
               onPress={() => {
-                handleFavorite(url);
+                handleFavorite(url, user.id);
               }}
             >
               <Star

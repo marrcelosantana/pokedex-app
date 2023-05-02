@@ -4,24 +4,18 @@ import { Center, useToast } from "native-base";
 
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
-import { Trash } from "phosphor-react-native";
 
-import { clearStorage } from "@storage/storageFavorite";
 import { useFavorites } from "@hooks/useFavorites";
+import { useAuth } from "@hooks/useAuth";
 
 import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
 import { Header } from "@components/Header";
 
-import {
-  CardsContainer,
-  Container,
-  Highlight,
-  RemoveBtn,
-  Text,
-} from "./styles";
+import { CardsContainer, Container, Highlight, Text } from "./styles";
 
 export function Favorites() {
+  const { user } = useAuth();
   const { favorites, loadFavorites } = useFavorites();
 
   const navigation = useNavigation<AppNavigatorRoutesProps>();
@@ -31,22 +25,9 @@ export function Favorites() {
     navigation.navigate("details", { url });
   }
 
-  async function handleClear() {
-    try {
-      await clearStorage();
-      await loadFavorites();
-    } catch (error) {
-      toast.show({
-        title: "Error! Try again.",
-        bgColor: "red.400",
-        placement: "top",
-      });
-    }
-  }
-
   useFocusEffect(
     useCallback(() => {
-      loadFavorites();
+      loadFavorites(user.id);
     }, [])
   );
 
@@ -61,9 +42,6 @@ export function Favorites() {
 
           <Highlight>
             <Text>Favorites: {favorites.length}</Text>
-            <RemoveBtn onPress={handleClear}>
-              <Trash size={20} color="white" weight="bold" />
-            </RemoveBtn>
           </Highlight>
 
           <CardsContainer>

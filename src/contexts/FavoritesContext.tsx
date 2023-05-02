@@ -8,8 +8,8 @@ import {
 interface FavoritesContextType {
   favorites: string[];
   isFavorite: boolean;
-  loadFavorites: () => Promise<void>;
-  addToFavorites: (url: string) => Promise<void>;
+  loadFavorites: (userId: string) => Promise<void>;
+  addToFavorites: (url: string, userId: string) => Promise<void>;
 }
 
 interface FavoritesProviderProps {
@@ -24,9 +24,9 @@ export function FavoritesProvider({ children }: FavoritesProviderProps) {
 
   const toast = useToast();
 
-  async function loadFavorites() {
+  async function loadFavorites(userId: string) {
     try {
-      const data = await storageFavoritesGetAll();
+      const data = await storageFavoritesGetAll(userId);
       setFavorites(data);
     } catch (error) {
       toast.show({
@@ -38,10 +38,10 @@ export function FavoritesProvider({ children }: FavoritesProviderProps) {
     }
   }
 
-  async function addToFavorites(url: string) {
+  async function addToFavorites(url: string, userId: string) {
     try {
-      await storageFavoritesCreate(url);
-      await loadFavorites();
+      await storageFavoritesCreate(url, userId);
+      await loadFavorites(userId);
       setIsFavorite(!isFavorite);
     } catch (error) {
       toast.show({

@@ -45,7 +45,7 @@ export function UserInfo() {
       </InfoContainer>
 
       <LogoutButton onPress={handleSignOut}>
-        <Power size={32} color={theme.COLORS.TEXT} />
+        <Power size={32} color={theme.COLORS.TITLE} />
       </LogoutButton>
     </Container>
   );
