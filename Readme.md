@@ -1,7 +1,7 @@
 <h1 style="text-align: center; font-weight: bold;">Pokédex APP</h1>
 
 <div align="center" >
-  <img src="./assets/Thumb.png" height="325">
+  <img src="./screenshots/Thumb.png" height="325">
 </div>
 
 ## Sobre o Projeto
