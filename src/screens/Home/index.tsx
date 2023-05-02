@@ -3,6 +3,7 @@ import { FlatList } from "react-native";
 import { Center, useToast } from "native-base";
 
 import { useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "@routes/app.routes";
 import { api } from "@services/api";
 
 import * as yup from "yup";
@@ -16,7 +17,6 @@ import { Header } from "@components/Header";
 
 import { ResultsDTO } from "@models/ResultsDTO";
 import { MagnifyingGlass } from "phosphor-react-native";
-import { AppNavigatorRouterProps } from "@routes/app.routes";
 
 import {
   CardList,
@@ -46,7 +46,7 @@ export function Home() {
     resolver: yupResolver(formSchema),
   });
 
-  const navigation = useNavigation<AppNavigatorRouterProps>();
+  const navigation = useNavigation<AppNavigatorRoutesProps>();
 
   async function loadPokemons() {
     try {
