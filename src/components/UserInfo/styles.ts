@@ -1,5 +1,6 @@
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 export const Container = styled.View`
   padding-top: ${RFPercentage(2)}px;
@@ -23,7 +24,7 @@ export const UserImage = styled.Image`
 `;
 
 export const Info = styled.View`
-  width: 75%;
+  width: 62%;
 `;
 
 export const Subtitle = styled.Text`

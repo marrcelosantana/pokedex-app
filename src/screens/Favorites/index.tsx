@@ -41,7 +41,8 @@ export function Favorites() {
           />
 
           <Highlight>
-            <Text>Favorites: {favorites.length}</Text>
+            <Text>Favorites:</Text>
+            <Text>{favorites.length}</Text>
           </Highlight>
 
           <CardsContainer>

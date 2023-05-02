@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 import { useToast } from "native-base";
 
 import AppleLogo from "@assets/apple.svg";
@@ -47,11 +48,15 @@ export function SignIn() {
           svg={GoogleLogo}
           onPress={handleSignInWithGoogle}
         />
-        <SocialButton
-          title="Sign in with Apple"
-          svg={AppleLogo}
-          onPress={signInWithApple}
-        />
+
+        {Platform.OS === "ios" && (
+          <SocialButton
+            title="Sign in with Apple"
+            svg={AppleLogo}
+            onPress={signInWithApple}
+          />
+        )}
+
         <Subtitle>Choose a option</Subtitle>
       </Actions>
     </Container>

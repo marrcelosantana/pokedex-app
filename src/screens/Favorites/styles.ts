@@ -1,5 +1,6 @@
-import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+
+import { RFValue } from "react-native-responsive-fontsize";
 
 export const Container = styled.View`
   flex: 1;
@@ -20,7 +21,7 @@ export const Highlight = styled.View`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: 18px;
+  font-size: 20px;
 `;
 
 export const CardsContainer = styled.View`
