@@ -9,6 +9,7 @@ export const Container = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   margin-bottom: 16px;
   border-radius: 5px;
+  border: 1px solid ${({ theme }) => theme.COLORS.TEXT_BODY};
 `;
 
 export const ImageContainer = styled.View`
