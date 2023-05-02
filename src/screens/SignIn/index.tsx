@@ -19,7 +19,7 @@ export function SignIn() {
     <Container>
       <LogoContainer>
         <Logo source={PikachuLogo} resizeMode="contain" />
-        <Title>Pokédex Online</Title>
+        <Title>PokéDex</Title>
       </LogoContainer>
 
       <Actions>
