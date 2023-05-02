@@ -36,10 +36,10 @@ $ expo start
 
 ### Imagens
 
-|              Home              |              Favorites              |              Items              |
-| :----------------------------: | :---------------------------------: | :-----------------------------: |
-| <img src= "./assets/home.png"> | <img src= "./assets/favorites.png"> | <img src= "./assets/items.png"> |
+|                Home                 |                Favorites                 |                Items                 |
+| :---------------------------------: | :--------------------------------------: | :----------------------------------: |
+| <img src= "./screenshots/home.png"> | <img src= "./screenshots/favorites.png"> | <img src= "./screenshots/items.png"> |
 
-|                                   |                                     |                                     |                                     |
-| :-------------------------------: | :---------------------------------: | :---------------------------------: | ----------------------------------- |
-| <img src= "./assets/details.png"> | <img src= "./assets/details-2.png"> | <img src= "./assets/details-3.png"> | <img src= "./assets/details-4.png"> |
+|                                        |                                          |                                          |                                          |
+| :------------------------------------: | :--------------------------------------: | :--------------------------------------: | ---------------------------------------- |
+| <img src= "./screenshots/details.png"> | <img src= "./screenshots/details-2.png"> | <img src= "./screenshots/details-3.png"> | <img src= "./screenshots/details-4.png"> |
