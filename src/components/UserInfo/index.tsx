@@ -1,4 +1,3 @@
-import { Power } from "phosphor-react-native";
 import { useToast } from "native-base";
 import { useTheme } from "styled-components";
 
@@ -11,7 +10,7 @@ import {
   Subtitle,
   UserImage,
   UserName,
-  LogoutButton,
+  Sprite,
 } from "./styles";
 
 export function UserInfo() {
@@ -39,14 +38,16 @@ export function UserInfo() {
         <UserImage source={{ uri: user.picture }} />
 
         <Info>
-          <Subtitle>Olá,</Subtitle>
+          <Subtitle>Hello,</Subtitle>
           <UserName numberOfLines={1}>{user.name}</UserName>
         </Info>
       </InfoContainer>
 
-      <LogoutButton onPress={handleSignOut}>
-        <Power size={30} color={theme.COLORS.TITLE} />
-      </LogoutButton>
+      <Sprite
+        source={{
+          uri: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
+        }}
+      />
     </Container>
   );
 }

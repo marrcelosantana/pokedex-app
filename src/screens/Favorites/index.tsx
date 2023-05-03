@@ -46,15 +46,14 @@ export function Favorites() {
     <>
       {favorites ? (
         <Container>
-          <Header
-            title="Favorites"
-            url="https://img.pokemondb.net/sprites/black-white/anim/normal/togepi.gif"
-          />
+          <Header title="Favorites" />
 
-          <Highlight>
-            <Text>Favorites:</Text>
-            <Text>{favorites.length}</Text>
-          </Highlight>
+          {favorites.length > 0 && (
+            <Highlight>
+              <Star size={22} weight="duotone" color={theme.COLORS.TEXT} />
+              <Text>{favorites.length}</Text>
+            </Highlight>
+          )}
 
           <CardsContainer>
             <FlatList

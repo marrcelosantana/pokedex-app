@@ -11,6 +11,7 @@ import { useAuth } from "@hooks/useAuth";
 import {
   Actions,
   Container,
+  FooterText,
   Logo,
   LogoContainer,
   Subtitle,
@@ -39,7 +40,8 @@ export function SignIn() {
     <Container>
       <LogoContainer>
         <Logo source={PikachuLogo} resizeMode="contain" />
-        <Title>PokéDex</Title>
+        <Title>Hello, trainer!</Title>
+        <Subtitle>Welcome to pokédex</Subtitle>
       </LogoContainer>
 
       <Actions>
@@ -57,7 +59,7 @@ export function SignIn() {
           />
         )}
 
-        <Subtitle>Choose a option</Subtitle>
+        <FooterText>Choose an option</FooterText>
       </Actions>
     </Container>
   );

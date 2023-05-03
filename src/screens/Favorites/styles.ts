@@ -13,8 +13,7 @@ export const Container = styled.View`
 export const Highlight = styled.View`
   width: 100%;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: center;
   flex-direction: row;
 `;
 
@@ -27,14 +26,14 @@ export const Text = styled.Text`
 export const CardsContainer = styled.View`
   flex: 1;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 4px;
 `;
 
 export const EmptyList = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  margin-top: ${RFPercentage(20)}px;
+  margin-top: ${RFPercentage(25)}px;
 `;
 
 export const EmptyText = styled.Text`

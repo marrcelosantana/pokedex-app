@@ -37,6 +37,10 @@ export const UserName = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.COLORS.TEXT};
+  text-transform: capitalize;
 `;
 
-export const LogoutButton = styled.TouchableOpacity``;
+export const Sprite = styled.Image`
+  width: ${RFValue(36)}px;
+  height: ${RFValue(36)}px;
+`;

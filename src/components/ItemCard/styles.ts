@@ -8,8 +8,8 @@ export const Container = styled.View`
   margin-top: 15px;
   margin-right: 10px;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.COLORS.GRAY_100};
-  border: 1px solid ${({ theme }) => theme.COLORS.GRAY_400};
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  border: 1px solid ${({ theme }) => theme.COLORS.TEXT_BODY};
 `;
 
 export const Sprite = styled.Image`

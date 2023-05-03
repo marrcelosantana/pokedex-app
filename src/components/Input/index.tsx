@@ -11,6 +11,7 @@ export function Input({ ...rest }: IInputProps) {
       w="84%"
       mt="8px"
       fontFamily={theme.FONT_FAMILY.REGULAR}
+      fontSize={14}
       borderWidth={1}
       borderColor={theme.COLORS.BLUE_500}
       mb={1}

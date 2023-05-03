@@ -6,16 +6,18 @@ import {
   BottomTabNavigationProp,
 } from "@react-navigation/bottom-tabs";
 
+import { Backpack, House, Star, UserCircle } from "phosphor-react-native";
+
 import { Home } from "@screens/Home";
 import { Favorites } from "@screens/Favorites";
 import { Items } from "@screens/Items";
-
-import { Backpack, House, Star } from "phosphor-react-native";
+import { Profile } from "@screens/Profile";
 
 type TabRoutes = {
   home: undefined;
   favorites: undefined;
   items: undefined;
+  profile: undefined;
 };
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -74,6 +76,16 @@ export function TabRoutes() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <Backpack size={size} color={color} weight="bold" />
+          ),
+        }}
+      />
+
+      <Screen
+        name="profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <UserCircle size={size} color={color} weight="bold" />
           ),
         }}
       />

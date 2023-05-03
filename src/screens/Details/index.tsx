@@ -59,6 +59,7 @@ export function Details() {
       toast.show({
         title: "Pokemon not found!",
         bgColor: "red.400",
+        color: "gray.100",
         placement: "top",
       });
       navigation.goBack();

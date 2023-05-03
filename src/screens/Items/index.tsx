@@ -49,10 +49,7 @@ export function Items() {
     <>
       {items ? (
         <Container>
-          <Header
-            title="Items"
-            url="https://img.pokemondb.net/sprites/black-white/anim/normal/pichu.gif"
-          />
+          <Header title="Poke Items" />
 
           <FlatList
             data={items}
