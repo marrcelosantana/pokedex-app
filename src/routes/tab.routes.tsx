@@ -35,6 +35,8 @@ export function TabRoutes() {
         tabBarActiveTintColor: theme.COLORS.BLUE_500,
         tabBarInactiveTintColor: theme.COLORS.GRAY_400,
         tabBarStyle: {
+          backgroundColor: theme.COLORS.SHAPE,
+          borderColor: theme.COLORS.TEXT_BODY,
           height: 50,
           width: "80%",
           borderRadius: 9999,

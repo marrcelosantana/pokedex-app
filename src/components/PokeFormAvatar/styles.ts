@@ -23,6 +23,7 @@ export const Avatar = styled.Image`
 export const Title = styled.Text`
   font-size: 12px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  color: ${({ theme }) => theme.COLORS.TEXT};
   text-transform: capitalize;
   margin-top: 8px;
   margin-right: 8px;

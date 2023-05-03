@@ -1,6 +1,6 @@
-export const defaultTheme = {
+export const darkTheme = {
   COLORS: {
-    SHAPE: "#FFF",
+    SHAPE: "#201f23",
 
     GREEN_700: "#00875F",
     GREEN_500: "#00B37E",
@@ -12,11 +12,11 @@ export const defaultTheme = {
 
     GRAY_400: "#ababab",
 
-    TEXT: "#4d4d4d",
-    TITLE: "#363f5f",
-    TEXT_BODY: "#969cb3",
+    TEXT: "#f5f5f5",
+    TITLE: "#f4f4f4",
+    TEXT_BODY: "#9e9e9e",
 
-    BACKGROUND: "#f8f8ff",
+    BACKGROUND: "#121214",
   },
 
   FONT_FAMILY: {

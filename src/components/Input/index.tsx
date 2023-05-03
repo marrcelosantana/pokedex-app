@@ -6,19 +6,19 @@ export function Input({ ...rest }: IInputProps) {
 
   return (
     <NativeBaseInput
-      bg="gray.100"
+      bg={theme.COLORS.SHAPE}
       h="48px"
       w="84%"
       mt="8px"
       fontFamily={theme.FONT_FAMILY.REGULAR}
       fontSize={14}
       borderWidth={1}
-      borderColor={theme.COLORS.BLUE_500}
+      borderColor={theme.COLORS.TEXT_BODY}
       mb={1}
       _focus={{
-        bg: "gray.100",
+        bg: theme.COLORS.SHAPE,
         borderWidth: "1px",
-        borderColor: "blue.700",
+        borderColor: theme.COLORS.TEXT_BODY,
       }}
       {...rest}
     />

@@ -1,15 +1,16 @@
-import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+
+import { RFValue } from "react-native-responsive-fontsize";
 
 export const Container = styled.TouchableOpacity`
   width: 100%;
   height: ${RFValue(46)}px;
   flex-direction: row;
   align-items: center;
-  background-color: ${({ theme }) => theme.COLORS.SHAPE};
+  background-color: #fff;
   margin-bottom: 16px;
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.COLORS.TEXT_BODY};
+  border: 1px solid #969cb3;
 `;
 
 export const ImageContainer = styled.View`
@@ -25,6 +26,6 @@ export const Title = styled.Text`
   flex: 1;
   text-align: center;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  color: ${({ theme }) => theme.COLORS.TEXT};
+  color: #4d4d4d;
   font-size: ${RFValue(14)}px;
 `;

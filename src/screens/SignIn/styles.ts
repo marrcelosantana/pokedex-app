@@ -24,13 +24,13 @@ export const Logo = styled.Image`
 export const Title = styled.Text`
   font-size: ${RFValue(32)}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  color: ${({ theme }) => theme.COLORS.TITLE};
+  color: #363f5f;
 `;
 
 export const Subtitle = styled.Text`
   font-size: ${RFValue(22)}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  color: ${({ theme }) => theme.COLORS.TITLE};
+  color: #363f5f;
 `;
 
 export const Actions = styled.View``;

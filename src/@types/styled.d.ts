@@ -1,5 +1,7 @@
-import defaultTheme from "src/themes/default-theme";
 import "styled-components";
+
+import { darkTheme } from ".@themes/dark-theme";
+import { defaultTheme } from "@themes/default-theme";
 
 declare module "styled-components" {
   type ThemeType = typeof defaultTheme;

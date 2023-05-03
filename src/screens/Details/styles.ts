@@ -20,7 +20,7 @@ export const Name = styled.Text`
   font-size: 24px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   text-transform: capitalize;
-  color: ${({ theme }) => theme.COLORS.SHAPE};
+  color: white;
 `;
 
 export const Content = styled.View`
@@ -56,7 +56,7 @@ export const Header = styled.View`
 `;
 
 export const TabTitle = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.MEDIUM};
   color: ${({ theme }) => theme.COLORS.TEXT};
   font-size: 16px;
 `;

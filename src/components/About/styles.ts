@@ -19,8 +19,8 @@ export const Infos = styled.Text`
 `;
 
 export const Label = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  color: ${({ theme }) => theme.COLORS.TEXT_BODY};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.MEDIUM};
+  color: ${({ theme }) => theme.COLORS.TEXT};
   font-size: 16px;
 `;
 
@@ -28,6 +28,7 @@ export const Info = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   text-transform: capitalize;
   font-size: 16px;
+  color: ${({ theme }) => theme.COLORS.TEXT};
 `;
 
 export const Type = styled.View`
@@ -40,7 +41,7 @@ export const Type = styled.View`
 `;
 
 export const TypeName = styled.Text`
-  color: ${({ theme }) => theme.COLORS.SHAPE};
+  color: white;
   text-transform: capitalize;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
 `;
