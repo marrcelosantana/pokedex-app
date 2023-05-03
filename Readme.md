@@ -40,6 +40,6 @@ $ expo start
 | :---------------------------------: | :--------------------------------------: | :----------------------------------: |
 | <img src= "./screenshots/home.png"> | <img src= "./screenshots/favorites.png"> | <img src= "./screenshots/items.png"> |
 
-|                                        |                                          |                                          |                                          |
+|                 About                  |                  Stats                   |                  Forms                   | Shiny                                    |
 | :------------------------------------: | :--------------------------------------: | :--------------------------------------: | ---------------------------------------- |
 | <img src= "./screenshots/details.png"> | <img src= "./screenshots/details-2.png"> | <img src= "./screenshots/details-3.png"> | <img src= "./screenshots/details-4.png"> |
