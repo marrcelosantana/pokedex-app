@@ -13,7 +13,7 @@ export const Container = styled.View`
 export const Highlight = styled.View`
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
 `;
 
