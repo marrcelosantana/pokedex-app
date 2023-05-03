@@ -34,7 +34,7 @@ export const SearchBtn = styled.Pressable`
 
 export const ButtonText = styled.Text`
   margin-right: 10px;
-  color: white;
+  color: ${({ theme }) => theme.COLORS.SHAPE};
 `;
 
 export const LoadingContainer = styled.View`

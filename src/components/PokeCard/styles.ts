@@ -15,7 +15,7 @@ export const Title = styled.Text`
   font-size: 18px;
   text-transform: capitalize;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  color: white;
+  color: ${({ theme }) => theme.COLORS.SHAPE};
 `;
 
 export const TypesContainer = styled.View`
@@ -28,7 +28,7 @@ export const TypeImage = styled.Image`
   height: 30px;
   margin-right: 10px;
   border-width: 1px;
-  border-color: white;
+  border-color: ${({ theme }) => theme.COLORS.SHAPE};
   border-radius: 99px;
 `;
 

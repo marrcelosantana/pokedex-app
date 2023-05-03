@@ -7,6 +7,7 @@ export const Container = styled.View`
   display: flex;
   align-items: center;
   padding: ${RFPercentage(8)}px 0px;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 `;
 
 export const Content = styled.View`
@@ -56,7 +57,7 @@ export const SignOutButton = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  background-color: ${({ theme }) => theme.COLORS.SHAPE};
   border: 1px solid ${({ theme }) => theme.COLORS.TEXT_BODY};
   border-radius: 6px;
 `;

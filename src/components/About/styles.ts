@@ -40,7 +40,7 @@ export const Type = styled.View`
 `;
 
 export const TypeName = styled.Text`
-  color: white;
+  color: ${({ theme }) => theme.COLORS.SHAPE};
   text-transform: capitalize;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
 `;

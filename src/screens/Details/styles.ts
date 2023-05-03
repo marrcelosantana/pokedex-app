@@ -20,7 +20,7 @@ export const Name = styled.Text`
   font-size: 24px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   text-transform: capitalize;
-  color: white;
+  color: ${({ theme }) => theme.COLORS.SHAPE};
 `;
 
 export const Content = styled.View`
@@ -42,7 +42,7 @@ export const Avatar = styled.Image`
 export const InfoContainer = styled.View`
   height: 100%;
   width: 100%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.COLORS.SHAPE};
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
   padding: 20px 20px 0 20px;

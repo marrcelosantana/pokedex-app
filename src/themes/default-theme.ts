@@ -1,6 +1,6 @@
 export default {
   COLORS: {
-    WHITE: "#FFF",
+    SHAPE: "#FFF",
 
     GREEN_700: "#00875F",
     GREEN_500: "#00B37E",
@@ -13,8 +13,8 @@ export default {
     GRAY_700: "#121214",
     GRAY_600: "#202024",
     GRAY_400: "#ababab",
-    GRAY_200: "#f4f4f4",
-    GRAY_100: "#E1E1E6",
+    GRAY_200: "#E1E1E6",
+    GRAY_100: "#f4f4f4",
 
     TEXT: "#4d4d4d",
     TITLE: "#363f5f",
