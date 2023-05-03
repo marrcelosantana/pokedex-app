@@ -36,9 +36,9 @@ $ expo start
 
 ### Imagens
 
-|                Home                 |                Favorites                 |                Items                 |
-| :---------------------------------: | :--------------------------------------: | :----------------------------------: |
-| <img src= "./screenshots/home.png"> | <img src= "./screenshots/favorites.png"> | <img src= "./screenshots/items.png"> |
+|                Login                 |                Home                 |                Favorites                 | Items                                |
+| :----------------------------------: | :---------------------------------: | :--------------------------------------: | ------------------------------------ |
+| <img src= "./screenshots/login.png"> | <img src= "./screenshots/home.png"> | <img src= "./screenshots/favorites.png"> | <img src= "./screenshots/items.png"> |
 
 |                 About                  |                  Stats                   |                  Forms                   | Shiny                                    |
 | :------------------------------------: | :--------------------------------------: | :--------------------------------------: | ---------------------------------------- |
