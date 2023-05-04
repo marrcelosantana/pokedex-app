@@ -40,6 +40,8 @@ export const UserName = styled.Text`
   text-transform: capitalize;
 `;
 
+export const ChangeThemeButton = styled.Pressable``;
+
 export const Sprite = styled.Image`
   width: ${RFValue(36)}px;
   height: ${RFValue(36)}px;

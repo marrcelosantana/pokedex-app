@@ -1,7 +1,5 @@
-import { useToast } from "native-base";
-import { useTheme } from "styled-components";
-
 import { useAuth } from "@hooks/useAuth";
+import { useThemeContext } from "@hooks/useThemeContext";
 
 import {
   Container,
@@ -11,26 +9,14 @@ import {
   UserImage,
   UserName,
   Sprite,
+  ChangeThemeButton,
 } from "./styles";
 
 export function UserInfo() {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
+  const { isDarkTheme, changeTheme } = useThemeContext();
 
-  const toast = useToast();
-  const theme = useTheme();
-
-  async function handleSignOut() {
-    try {
-      await signOut();
-    } catch (error) {
-      toast.show({
-        title: "Logout error!",
-        placement: "top",
-        bgColor: "red.300",
-        color: "gray.100",
-      });
-    }
-  }
+  console.log(isDarkTheme);
 
   return (
     <Container>
@@ -43,11 +29,13 @@ export function UserInfo() {
         </Info>
       </InfoContainer>
 
-      <Sprite
-        source={{
-          uri: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
-        }}
-      />
+      <ChangeThemeButton onPress={changeTheme}>
+        <Sprite
+          source={{
+            uri: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
+          }}
+        />
+      </ChangeThemeButton>
     </Container>
   );
 }

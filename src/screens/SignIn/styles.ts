@@ -7,6 +7,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
   padding: 0 24px;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 `;
 
 export const LogoContainer = styled.View`
@@ -24,13 +25,13 @@ export const Logo = styled.Image`
 export const Title = styled.Text`
   font-size: ${RFValue(32)}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  color: #363f5f;
+  color: ${({ theme }) => theme.COLORS.TITLE};
 `;
 
 export const Subtitle = styled.Text`
   font-size: ${RFValue(22)}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  color: #363f5f;
+  color: ${({ theme }) => theme.COLORS.TITLE};
 `;
 
 export const Actions = styled.View``;
