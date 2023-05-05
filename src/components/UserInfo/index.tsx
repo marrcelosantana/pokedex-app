@@ -1,5 +1,4 @@
 import { useAuth } from "@hooks/useAuth";
-import { useThemeContext } from "@hooks/useThemeContext";
 
 import {
   Container,
@@ -14,9 +13,6 @@ import {
 
 export function UserInfo() {
   const { user } = useAuth();
-  const { isDarkTheme, changeTheme } = useThemeContext();
-
-  console.log(isDarkTheme);
 
   return (
     <Container>
@@ -29,7 +25,7 @@ export function UserInfo() {
         </Info>
       </InfoContainer>
 
-      <ChangeThemeButton onPress={changeTheme}>
+      <ChangeThemeButton>
         <Sprite
           source={{
             uri: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
