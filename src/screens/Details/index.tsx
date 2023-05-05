@@ -53,7 +53,7 @@ export function Details() {
 
   async function loadPokemonData() {
     try {
-      const response = await api.get(`${url}`);
+      const response = await api.get(url);
       setPokemon(response.data);
     } catch (error) {
       toast.show({

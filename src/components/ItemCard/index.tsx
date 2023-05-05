@@ -18,7 +18,7 @@ export function ItemCard({ url }: Props) {
 
   async function loadItemData() {
     try {
-      const response = await api.get(`${url}`);
+      const response = await api.get(url);
       setData(response.data);
     } catch (error) {
       toast.show({
