@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  TouchableOpacity,
-  View,
-  TouchableOpacityProps,
-  Pressable,
-} from "react-native";
+import { View, PressableProps, Pressable } from "react-native";
 
 import { useToast } from "native-base";
 import { Star } from "phosphor-react-native";
@@ -20,7 +15,7 @@ import { useFavorites } from "@hooks/useFavorites";
 
 import { Avatar, Container, Title, TypeImage, TypesContainer } from "./styles";
 
-type Props = TouchableOpacityProps & {
+type Props = PressableProps & {
   url: string;
 };
 
@@ -78,7 +73,7 @@ export function PokeCard({ url, ...rest }: Props) {
   }, []);
 
   return (
-    <TouchableOpacity {...rest}>
+    <Pressable {...rest}>
       {pokemon && (
         <Container
           style={{
@@ -129,6 +124,6 @@ export function PokeCard({ url, ...rest }: Props) {
           </View>
         </Container>
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 }
