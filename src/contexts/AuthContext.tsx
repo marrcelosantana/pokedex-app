@@ -61,6 +61,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setUser({
           id: userInfo.id,
           name: userInfo.name,
+          given_name: userInfo.given_name,
           email: userInfo.email,
           picture: userInfo.picture,
         });

@@ -28,7 +28,7 @@ export function UserInfo() {
 
         <Info>
           <Subtitle>Hello,</Subtitle>
-          <UserName numberOfLines={1}>{user.name}</UserName>
+          <UserName numberOfLines={1}>{user.given_name}</UserName>
         </Info>
       </InfoContainer>
 
