@@ -36,9 +36,9 @@ $ expo start
 
 ### Imagens - Tema Light
 
-|                       Login                       |                      Home                       |                      Favorites                       | Items                                            |
-| :-----------------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: | ------------------------------------------------ |
-| <img src= "./screenshots/light-theme/signIn.png"> | <img src= "./screenshots/light-theme/home.png"> | <img src= "./screenshots/light-theme/favorites.png"> | <img src= "./screenshots/light-theme/items.png"> |
+|                       Login                       |                      Home                       |                      Favorites                       | Items                                            |Profile                                            |
+| :-----------------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: | ------------------------------------------------ | ------------------------------------------------ |
+| <img src= "./screenshots/light-theme/signIn.png"> | <img src= "./screenshots/light-theme/home.png"> | <img src= "./screenshots/light-theme/favorites.png"> | <img src= "./screenshots/light-theme/items.png"> | <img src= "./screenshots/light-theme/profile.png"> |
 
 |                       About                        |                        Stats                         |                        Forms                         | Shiny                                                |
 | :------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | ---------------------------------------------------- |
