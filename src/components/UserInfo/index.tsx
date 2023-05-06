@@ -1,4 +1,7 @@
 import { useAuth } from "@hooks/useAuth";
+import { useThemeContext } from "@hooks/useThemeContext";
+
+import { MoonStars, Sun } from "phosphor-react-native";
 
 import {
   Container,
@@ -7,12 +10,12 @@ import {
   Subtitle,
   UserImage,
   UserName,
-  Sprite,
   ChangeThemeButton,
 } from "./styles";
 
 export function UserInfo() {
   const { user } = useAuth();
+  const { isDarkTheme, changeTheme } = useThemeContext();
 
   return (
     <Container>
@@ -25,12 +28,12 @@ export function UserInfo() {
         </Info>
       </InfoContainer>
 
-      <ChangeThemeButton>
-        <Sprite
-          source={{
-            uri: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
-          }}
-        />
+      <ChangeThemeButton onPress={changeTheme}>
+        {isDarkTheme ? (
+          <MoonStars size={32} color="white" />
+        ) : (
+          <Sun size={32} color="black" />
+        )}
       </ChangeThemeButton>
     </Container>
   );
