@@ -17,6 +17,10 @@ export function UserInfo() {
   const { user } = useAuth();
   const { isDarkTheme, changeTheme } = useThemeContext();
 
+  function handleChangeTheme() {
+    changeTheme();
+  }
+
   return (
     <Container>
       <InfoContainer>
@@ -28,7 +32,7 @@ export function UserInfo() {
         </Info>
       </InfoContainer>
 
-      <ChangeThemeButton onPress={changeTheme}>
+      <ChangeThemeButton onPress={handleChangeTheme}>
         {isDarkTheme ? (
           <MoonStars size={32} color="white" />
         ) : (
