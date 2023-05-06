@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StatusBar } from "react-native";
 
 import { ThemeProvider } from "styled-components";
@@ -20,6 +21,12 @@ import {
 } from "@expo-google-fonts/roboto";
 
 export default function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  function changeTheme() {
+    setIsDark(!isDark);
+  }
+
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
@@ -28,9 +35,9 @@ export default function App() {
 
   return (
     <NativeBaseProvider>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <StatusBar
-          barStyle={"dark-content"}
+          barStyle={isDark ? "light-content" : "dark-content"}
           backgroundColor="transparent"
           translucent
         />

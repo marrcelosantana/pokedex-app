@@ -13,7 +13,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { PokeCard } from "@components/PokeCard";
 import { Loading } from "@components/Loading";
 import { Input } from "@components/Input";
-import { Header } from "@components/Header";
+import { UserInfo } from "@components/UserInfo";
 
 import { ResultsDTO } from "@models/ResultsDTO";
 import { MagnifyingGlass } from "phosphor-react-native";
@@ -25,7 +25,6 @@ import {
   LoadingContainer,
   SearchBtn,
 } from "./styles";
-import { UserInfo } from "@components/UserInfo";
 
 type FormDataProps = {
   query: string;

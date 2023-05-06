@@ -7,6 +7,7 @@ export function Input({ ...rest }: IInputProps) {
   return (
     <NativeBaseInput
       bg={theme.COLORS.SHAPE}
+      color={theme.COLORS.TEXT}
       h="48px"
       w="84%"
       mt="8px"
