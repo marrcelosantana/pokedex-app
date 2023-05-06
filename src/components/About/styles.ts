@@ -19,7 +19,7 @@ export const Infos = styled.Text`
 `;
 
 export const Label = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.MEDIUM};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   color: ${({ theme }) => theme.COLORS.TEXT};
   font-size: 16px;
 `;

@@ -1,5 +1,5 @@
 import { ThemeContextProvider } from "@contexts/ThemeContext";
-import { Application } from "@screens/Application";
+import { Application } from "@app/index";
 
 export default function App() {
   return (

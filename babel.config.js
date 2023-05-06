@@ -20,6 +20,7 @@ module.exports = function (api) {
             "@contexts": "./src/contexts",
             "@routes": "./src/routes",
             "@themes": "./src/themes",
+            "@app": "./src/app",
           },
         },
       ],

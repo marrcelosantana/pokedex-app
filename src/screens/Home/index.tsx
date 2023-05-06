@@ -36,7 +36,7 @@ const formSchema = yup.object({
 
 export function Home() {
   const [pokemons, setPokemons] = useState<ResultsDTO[]>([]);
-  const [pokemonPerPage, setPokemonPerPage] = useState(12);
+  const [pokemonPerPage, setPokemonPerPage] = useState(9);
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -130,7 +130,7 @@ export function Home() {
               )}
               showsVerticalScrollIndicator={false}
               onEndReached={() => {
-                setPokemonPerPage(pokemonPerPage + 12);
+                setPokemonPerPage(pokemonPerPage + 25);
               }}
               onEndReachedThreshold={0.5}
             />
