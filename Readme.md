@@ -46,9 +46,9 @@ $ expo start
 
 ### Imagens - Tema Dark
 
-|                      Login                       |                      Home                      |                      Favorites                      | Items                                           |
-| :----------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------: | ----------------------------------------------- |
-| <img src= "./screenshots/dark-theme/signIn.png"> | <img src= "./screenshots/dark-theme/home.png"> | <img src= "./screenshots/dark-theme/favorites.png"> | <img src= "./screenshots/dark-theme/items.png"> |
+|                      Login                       |                      Home                      |                      Favorites                      | Items                                           | Profile                                           |
+| :----------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------: | ----------------------------------------------- | ----------------------------------------------- |
+| <img src= "./screenshots/dark-theme/signIn.png"> | <img src= "./screenshots/dark-theme/home.png"> | <img src= "./screenshots/dark-theme/favorites.png"> | <img src= "./screenshots/dark-theme/items.png"> | <img src= "./screenshots/dark-theme/profile.png"> |
 
 |                       About                       |                        Stats                        |                        Forms                        | Shiny                                               |
 | :-----------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: | --------------------------------------------------- |
