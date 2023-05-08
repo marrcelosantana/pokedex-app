@@ -13,9 +13,9 @@ import { PokeFormAvatar } from "@components/PokeFormAvatar";
 
 import { Container } from "./styles";
 
-type Props = {
+interface Props {
   pokemon: PokemonDTO;
-};
+}
 
 export function Forms({ pokemon }: Props) {
   const [specieData, setSpecieData] = useState<SpeciesDTO>();

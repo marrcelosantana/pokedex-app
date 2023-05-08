@@ -8,12 +8,12 @@ import { getBackgroundColor } from "@utils/getBackgroundColor";
 
 import { Avatar, AvatarContainer, Container, Title } from "./styles";
 
-type Props = {
+interface Props {
   variety: {
     name: string;
     url: string;
   };
-};
+}
 
 export function PokeFormAvatar({ variety }: Props) {
   const [data, setData] = useState<PokemonDTO>();

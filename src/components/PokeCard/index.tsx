@@ -15,9 +15,9 @@ import { useFavorites } from "@hooks/useFavorites";
 
 import { Avatar, Container, Title, TypeImage, TypesContainer } from "./styles";
 
-type Props = PressableProps & {
+interface Props extends PressableProps {
   url: string;
-};
+}
 
 export function PokeCard({ url, ...rest }: Props) {
   const { user } = useAuth();

@@ -5,9 +5,9 @@ import { Loading } from "@components/Loading";
 
 import { Avatar, Container, Title } from "./styles";
 
-type Props = {
+interface Props {
   pokemon: PokemonDTO;
-};
+}
 
 export function Shiny({ pokemon }: Props) {
   return (

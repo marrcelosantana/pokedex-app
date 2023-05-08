@@ -1,9 +1,9 @@
 import { Container, LogoImg, Title } from "./styles";
 
-type Props = {
+interface Props {
   title: string;
   url?: string;
-};
+}
 
 export function Header({ title, url }: Props) {
   return (

@@ -7,9 +7,9 @@ import { ItemDTO } from "@models/ItemDTO";
 
 import { Container, Sprite, Title } from "./styles";
 
-type Props = {
+interface Props {
   url: string;
-};
+}
 
 export function ItemCard({ url }: Props) {
   const [data, setData] = useState<ItemDTO>();

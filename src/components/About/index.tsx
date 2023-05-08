@@ -12,9 +12,9 @@ import { getBackgroundColor } from "@utils/getBackgroundColor";
 
 import { Container, Info, Infos, Label, Title, Type, TypeName } from "./styles";
 
-type Props = {
+interface Props {
   pokemon: PokemonDTO;
-};
+}
 
 export function About({ pokemon }: Props) {
   const [specieData, setSpecieData] = useState<SpeciesDTO>();

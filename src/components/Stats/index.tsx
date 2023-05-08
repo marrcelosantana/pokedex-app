@@ -6,9 +6,9 @@ import { Loading } from "@components/Loading";
 
 import { Container, ProgressContainer, Title } from "./styles";
 
-type Props = {
+interface Props {
   pokemon: PokemonDTO;
-};
+}
 
 export function Stats({ pokemon }: Props) {
   return (

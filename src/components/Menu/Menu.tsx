@@ -2,9 +2,9 @@ import { useState } from "react";
 import { CheckIcon, Select } from "native-base";
 import { useTheme } from "styled-components";
 
-type Props = {
+interface Props {
   setPage(page: number): void;
-};
+}
 
 export function Menu({ setPage }: Props) {
   const [region, setRegion] = useState("");
