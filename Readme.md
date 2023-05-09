@@ -34,20 +34,20 @@ $ expo start
 
 ```
 
-### Imagens - Tema Light
+## Imagens - Tema Light
 
-|                       Login                       |                      Home                       |                      Favorites                       | Items                                            |Profile                                            |
-| :-----------------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: | ------------------------------------------------ | ------------------------------------------------ |
+|                       Login                       |                      Home                       |                      Favorites                       | Items                                            | Profile                                            |
+| :-----------------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: | ------------------------------------------------ | -------------------------------------------------- |
 | <img src= "./screenshots/light-theme/signIn.png"> | <img src= "./screenshots/light-theme/home.png"> | <img src= "./screenshots/light-theme/favorites.png"> | <img src= "./screenshots/light-theme/items.png"> | <img src= "./screenshots/light-theme/profile.png"> |
 
 |                       About                        |                        Stats                         |                        Forms                         | Shiny                                                |
 | :------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | ---------------------------------------------------- |
 | <img src= "./screenshots/light-theme/details.png"> | <img src= "./screenshots/light-theme/details-2.png"> | <img src= "./screenshots/light-theme/details-3.png"> | <img src= "./screenshots/light-theme/details-4.png"> |
 
-### Imagens - Tema Dark
+## Imagens - Tema Dark
 
 |                      Login                       |                      Home                      |                      Favorites                      | Items                                           | Profile                                           |
-| :----------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------: | ----------------------------------------------- | ----------------------------------------------- |
+| :----------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------: | ----------------------------------------------- | ------------------------------------------------- |
 | <img src= "./screenshots/dark-theme/signIn.png"> | <img src= "./screenshots/dark-theme/home.png"> | <img src= "./screenshots/dark-theme/favorites.png"> | <img src= "./screenshots/dark-theme/items.png"> | <img src= "./screenshots/dark-theme/profile.png"> |
 
 |                       About                       |                        Stats                        |                        Forms                        | Shiny                                               |
